@@ -1,5 +1,4 @@
 from Gate import Gate
-from Measurement import Measurement
 from RunArguments import RunArguments
 
 class QPP:
@@ -12,7 +11,6 @@ class QPP:
 
         self.count = 0
         self.gates = []
-        self.measurements = []
 
     def _allocate(self, count: int) -> int:
         """
@@ -37,18 +35,11 @@ class QPP:
         """
         self.gates.append(gate)
 
-    def _add_measurement(self, measurement: Measurement):
-        """
-        Adds a measurement to the Quantum program
-
-        measurement: Measurement, a gate object to add
-        """
-        self.measurements.append(measurement)
-
     def run(self, args: RunArguments):
         """
         Runs the quantum program created through QPP
         """
         #TODO: convert this into a Qiskit circuit and execute
 
+#TODO: global?? make static
 QuantumMemory = QPP()
