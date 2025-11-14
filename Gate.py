@@ -1,7 +1,7 @@
 from typing import Collection
 
 from QState import QState
-from QPP import QuantumMemory
+from QPP import QPP
 
 class Gate():
 
@@ -13,7 +13,7 @@ class Gate():
         """
 
         self.targets = targets
-        QuantumMemory._add_gate(self)
+        QPP._add_gate(self)
 
     def execute(self):
         pass

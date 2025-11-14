@@ -25,6 +25,3 @@ class QPP:
         Runs the quantum program created through QPP
         """
         #TODO: convert this into a Qiskit circuit and execute
-
-#TODO: global?? make static
-QuantumMemory = QPP()

@@ -1,5 +1,4 @@
 from Qubit import Qubit
-from QPP import QuantumMemory
 
 class QState:
     _previous_allocation = 0
