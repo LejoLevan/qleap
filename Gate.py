@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Collection
 
 from Qubit import Qubit
+from Operation import Operation
 
 class Gate(ABC):
 
