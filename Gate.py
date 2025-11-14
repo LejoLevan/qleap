@@ -1,12 +1,11 @@
-from abc import ABC, abstractmethod
 from typing import Collection
 
-from Qubit import Qubit
-from Operation import Operation
+from QState import QState
+from QPP import QuantumMemory
 
-class Gate(ABC):
+class Gate():
 
-    def __init__(self, targets: Collection[Qubit]):
+    def __init__(self, targets: Collection[QState]):
         """
         targets: List of Qubit objects
         
@@ -14,7 +13,7 @@ class Gate(ABC):
         """
 
         self.targets = targets
+        QuantumMemory._add_gate(self)
 
-    @abstractmethod
     def execute(self):
         pass

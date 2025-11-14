@@ -11,21 +11,6 @@ class QPP:
 
         self.count = 0
         self.gates = []
-
-    def _allocate(self, count: int) -> int:
-        """
-        Allocates space for qubits.
-        For internal use only.
-        
-        count: int, number of qubits created
-
-        Returns: int, the starting index of the space allocated.
-        """
-        
-        return_value = self.count
-        self.count += count
-
-        return return_value
     
     def _add_gate(self, gate: Gate):
         """
