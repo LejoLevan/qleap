@@ -14,7 +14,7 @@ class Operation():
         """
 
         self.targets = targets
-        QPP._add_operation(self)
+        QPP.get_instance()._add_operation(self)
 
     def execute(self, qInterface):
         pass

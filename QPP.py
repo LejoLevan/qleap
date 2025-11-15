@@ -17,7 +17,22 @@ class QPP:
 
         self.count = 0
         self.gates = []
-    
+
+    def _add_operation(self, op: Operation):
+        """
+        Adds a gate to the Quantum program
+
+        gate: Gate, a gate object to add
+        """
+        QPP._instance.gates.append(gate) # type: ignore
+
+    def run(self, args: RunArguments):
+        """
+        Runs the quantum program created through QPP
+        """
+        #TODO: convert this into a Qiskit circuit and execute
+        pass
+
     @staticmethod
     def get_instance():
         """
@@ -27,20 +42,3 @@ class QPP:
             QPP._instance = QPP()
         
         return QPP._instance
-
-    @staticmethod
-    def _add_operation(op: Operation):
-        """
-        Adds a gate to the Quantum program
-
-        gate: Gate, a gate object to add
-        """
-        QPP._instance.gates.append(gate) # type: ignore
-
-    @staticmethod
-    def run(args: RunArguments):
-        """
-        Runs the quantum program created through QPP
-        """
-        #TODO: convert this into a Qiskit circuit and execute
-        pass
