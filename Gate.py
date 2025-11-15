@@ -1,9 +1,9 @@
 from typing import Collection
 
 from QState import QState
-from QPP import QPP
+from Operation import Operation
 
-class Gate():
+class Gate(Operation):
 
     def __init__(self, targets: Collection[QState]):
         """
@@ -12,8 +12,7 @@ class Gate():
         Creates a new Gate object and assigns the qubits in targets as its arguments
         """
 
-        self.targets = targets
-        QPP._add_gate(self)
+        super().__init__(targets)
 
-    def execute(self):
+    def execute(self, qInterface):
         pass

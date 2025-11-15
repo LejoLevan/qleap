@@ -1,10 +1,10 @@
 from scipy.stats import rv_discrete
 from typing import Collection
 
-from Gate import Gate
+from Operation import Operation
 from QState import QState
 
-class Measurement(Gate):
+class Measurement(Operation):
 
     def __init__(self, targets: Collection[QState]):
         """
