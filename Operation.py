@@ -5,16 +5,15 @@ from QPP import QPP
 
 class Operation():
 
-    def __init__(self, targets: Collection[QState]):
+    def __init__(self, target: QState):
         """
         targets: List of Qubit objects
         
-        Creates a new Operation object and assigns the qubits in targets as its arguments
-        An operation might be a gate or a measurement
+        Creates a new Gate object and assigns the qubits in targets as its arguments
         """
 
-        self.targets = targets
-        QPP.get_instance()._add_operation(self)
+        self._target = target
+        QPP._add_gate(self)
 
-    def execute(self, qInterface):
-        pass
+    def _apply(self, qi):
+        raise NotImplementedError

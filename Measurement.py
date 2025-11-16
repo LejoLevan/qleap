@@ -1,20 +1,29 @@
 from scipy.stats import rv_discrete
-from typing import Collection
+from typing import override
 
 from Operation import Operation
 from QState import QState
 
 class Measurement(Operation):
 
-    def __init__(self, targets: Collection[QState]):
+    def __init__(self, target: QState):
         """
         targets: List of Qubit objects
         
         Creates a new Measurement object and assigns the qubits in targets as its arguments
         """
 
-        super().__init__(targets)
+        super().__init__(target)
         self.result = None
+    
+    @override
+    def _apply(self, qi):
+        qi.measure(
+            start=self._target._start, 
+            end=self._target._end
+        )
+
+        # maybe anticipate some kind of return assigned to result??
 
     def measure(self): 
         """
