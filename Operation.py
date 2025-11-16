@@ -7,9 +7,9 @@ class Operation():
 
     def __init__(self, target: QState):
         """
-        targets: List of Qubit objects
+        target: QState
         
-        Creates a new Gate object and assigns the qubits in targets as its arguments
+        Creates a new Operation object and assigns the qubits in targets as its arguments
         """
 
         self._target = target
