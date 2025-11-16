@@ -3,7 +3,7 @@ from typing import Collection
 from QState import QState
 from QPP import QPP
 
-class Gate():
+class Operation():
 
     def __init__(self, target: QState):
         """
