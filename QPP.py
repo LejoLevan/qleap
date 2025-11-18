@@ -1,27 +1,32 @@
-from Gate import Gate
+from Operation import Operation
+from QuantumInterface import QuantumInterface
 from RunArguments import RunArguments
 
 class QPP:
-
-    def __init__(self):
-        """
-        Internal class for handling QPP quantum circuits.
-        Should not be instantiated by the user.
-        """
-
-        self.count = 0
-        self.gates = []
     
-    def _add_gate(self, gate: Gate):
+    _operation_count = 0
+    _qubit_count = 0
+
+    _operations = []
+    _qi = QuantumInterface()
+    
+    @classmethod
+    def _add_operation(cls, operation: Operation):
+
         """
-        Adds a gate to the Quantum program
+        Adds an operation to the Quantum program
 
         gate: Gate, a gate object to add
         """
-        self.gates.append(gate)
+        cls._operations.append(operation)
 
-    def run(self, args: RunArguments):
+    @classmethod
+    def run(cls, args: RunArguments):
         """
         Runs the quantum program created through QPP
         """
         #TODO: convert this into a Qiskit circuit and execute
+        cls._qi.create_circuit(numQubits=cls._qubit_count)
+        
+        for op in self._operations:
+             op._apply(self._qi)
