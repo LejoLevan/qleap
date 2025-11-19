@@ -13,7 +13,7 @@ class Operation():
         """
 
         self._target = target
-        QPP._add_gate(self)
+        QPP._add_operation(self)
 
     def _apply(self, qi):
         raise NotImplementedError
