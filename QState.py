@@ -1,7 +1,6 @@
-from Qubit import Qubit
+from QPP import QPP
 
 class QState:
-    _previous_allocation = 0
 
     def __init__(self, length: int):
         """
@@ -13,23 +12,8 @@ class QState:
         self._len = length
 
         if self._len > 0:
-            self._start = self._allocate(length)
+            self._start = QPP._allocate(length)
             self._end = self._start + length
-    
-    def _allocate(self, count: int) -> int:
-        """
-        Allocates space for qubits.
-        For internal use only.
-        
-        count: int, number of qubits created
-
-        Returns: int, the starting index of the space allocated.
-        """
-        
-        return_value = self._previous_allocation
-        self._previous_allocation += count
-
-        return return_value
 
     def __len__(self):
         """
@@ -59,6 +43,7 @@ class QState:
             if index >= len(self):
                 raise IndexError(f"Index {int} is out of bounds for QState of length {len(self)}")
             
+            from Qubit import Qubit
             return Qubit(self, index)
     
     def show(self):

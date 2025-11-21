@@ -4,7 +4,7 @@ from typing import override
 
 class Hadamard(Gate):
     def __init__(self, target: QState):
-        super.__init__(target)
+        super().__init__(target)
     
     @override
     def _apply(self, qi):
