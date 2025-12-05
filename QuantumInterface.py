@@ -13,6 +13,9 @@ class QuantumInterface:
     def hadamard(self, start, end):
         self._qc.h(range(start, end)) # type: ignore
     
+    def cnot(self, control, target):
+        self._qc.cx(control_qubit=control, target_qubit=target) # type: ignore
+
     def measure(self, start, end):
         self._qc.measure(range(start, end), range(start, end)) # type: ignore
         # maybe have some return??

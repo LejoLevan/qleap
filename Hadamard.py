@@ -3,12 +3,14 @@ from QState import QState
 from typing import override
 
 class Hadamard(Gate):
-    def __init__(self, target: QState):
-        super().__init__(target)
+    def __init__(self, *args: QState):
+        super().__init__(args)
     
     @override
     def _apply(self, qi):
-        qi.hadamard(
-            start=self._target._start, 
-            end=self._target._end
-        )
+
+        for target in self._targets:
+            qi.hadamard(
+                start=target._start, 
+                end=target._end
+            )
