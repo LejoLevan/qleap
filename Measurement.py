@@ -6,22 +6,24 @@ from QState import QState
 
 class Measurement(Operation):
 
-    def __init__(self, target: QState):
+    def __init__(self, *args: QState):
         """
         targets: List of Qubit objects
         
         Creates a new Measurement object and assigns the qubits in targets as its arguments
         """
 
-        super().__init__(target)
+        super().__init__(args)
         self.result = None
     
     @override
     def _apply(self, qi):
-        qi.measure(
-            start=self._target._start, 
-            end=self._target._end
-        )
+        
+        for target in self._targets:
+            qi.measure(
+                start=target._start, 
+                end=target._end
+            )
 
         # maybe anticipate some kind of return assigned to result??
 
