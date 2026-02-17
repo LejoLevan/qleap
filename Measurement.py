@@ -3,6 +3,7 @@ from typing import override
 
 from Operation import Operation
 from QState import QState
+from QPP import QPP
 
 class Measurement(Operation):
 
@@ -14,28 +15,13 @@ class Measurement(Operation):
         """
 
         super().__init__(args)
-        self.result = None
     
     @override
     def _apply(self, qi):
         
         for target in self._targets:
+            QPP.record_measurement(target)
             qi.measure(
                 start=target._start, 
                 end=target._end
             )
-
-        # maybe anticipate some kind of return assigned to result??
-
-    def measure(self): 
-        """
-        Measures the target state and determines a random outcome based on the wavefunction
-        """
-        pass
-
-    def get_distribution(self):
-        """
-        Returns a probability distribution of measurments outcomes
-        """
-        
-        pass

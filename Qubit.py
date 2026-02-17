@@ -1,5 +1,5 @@
-
 from QState import QState
+from SimResult import extract_counts
 
 class Qubit(QState):
 
@@ -14,6 +14,7 @@ class Qubit(QState):
             self._start = qState._start + index
             self._end = self._start + 1
             self._len = 1
+            self._results = extract_counts(qState.get_results(), [index])
         else:
             super().__init__(1)
 
