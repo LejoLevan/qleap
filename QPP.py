@@ -1,4 +1,5 @@
 from QuantumInterface import QuantumInterface
+from SimResult import extract_counts
 
 class QPP:
     
@@ -7,7 +8,10 @@ class QPP:
 
     _operations = []
     _qi = QuantumInterface()
-    
+    _results = None
+
+    _measured = set()
+
     @classmethod
     def _add_operation(cls, operation):
 
@@ -35,6 +39,29 @@ class QPP:
         return return_value
 
     @classmethod
+    def record_measurement(cls, qs):
+        """
+        Records measurement of the given QState
+        """
+        cls._measured.add(qs)
+
+    @classmethod
+    def get_results(cls):
+        """
+        Returns the results of the most recent simulation, in a dict of {result: count} pairs
+        """
+
+        return cls._results
+
+    @classmethod
+    def draw(cls):
+        """
+        Draws the constructed circuit that has already run
+        """
+
+        return cls._qi.draw()
+
+    @classmethod
     def run(cls, args=None):
         """
         Runs the quantum program created through QPP
@@ -42,13 +69,40 @@ class QPP:
         args: RunArugments object, modifies the run parameters. If omitted,
             uses default arguments.
         """
-        #TODO: convert this into a Qiskit circuit and execute
         cls._qi.create_circuit(numQubits=cls._qubit_count)
         
         for op in cls._operations:
              op._apply(cls._qi)
 
-        cls._qi.draw()
-        print(cls._qi.simulate())
+        cls._results = cls._qi.simulate()
+        counts = cls._results.counts
 
-        print("done running")
+        kept_counts = set()
+
+        # Distribute the results into the qstates
+        for qs in cls._measured:
+
+            extract_range = range(qs._start, qs._end)
+            kept_counts.update(extract_range)
+
+            extracted_counts = extract_counts(counts, extract_range)
+
+            for count in extracted_counts:
+                qs._add_result(count, extracted_counts[count])
+
+        # filter out unmeasured qubits
+        cls._results.counts = extract_counts(counts, kept_counts)
+
+        return cls._results
+
+    @classmethod
+    def clear(cls):
+        """
+        Resets the quantum program
+        """
+
+        cls._operation_count = 0
+        cls._qubit_count = 0
+        cls._operations.clear()
+        cls._measured.clear()
+        cls._results = None

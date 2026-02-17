@@ -11,6 +11,8 @@ class QState:
 
         self._len = length
 
+        self._results = dict()
+
         if self._len > 0:
             self._start = QPP._allocate(length)
             self._end = self._start + length
@@ -46,6 +48,24 @@ class QState:
             from Qubit import Qubit
             return Qubit(self, index)
     
+    def _add_result(self, outcome, count):
+        """
+        Adds the given outcome with the specified number of counts to the results dict
+        """
+
+        if outcome not in self._results:
+            self._results[outcome] = 0
+
+        self._results[outcome] += count
+
+
+    def get_results(self):
+        """
+        Gets the results of measuring this quantum state
+        """
+        return self._results
+
+
     def show(self):
         """
         Shows a representation of this QState
