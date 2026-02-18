@@ -1,4 +1,4 @@
-from .Gate import Gate
+from ._Gate import Gate
 from ...QState import QState
 from typing import override
 

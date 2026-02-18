@@ -1,4 +1,4 @@
-from ..Operation import Operation
+from .._Operation import Operation
 
 class Gate(Operation):
     def __init__(self, target):

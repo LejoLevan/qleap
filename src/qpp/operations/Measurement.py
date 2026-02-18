@@ -1,7 +1,7 @@
 from scipy.stats import rv_discrete
 from typing import override
 
-from .Operation import Operation
+from ._Operation import Operation
 from ..QState import QState
 from ..QPP import QPP
 
