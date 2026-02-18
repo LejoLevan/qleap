@@ -1,5 +1,5 @@
-from QuantumInterface import QuantumInterface
-from SimResult import extract_counts
+from .QuantumInterface import QuantumInterface
+from .SimResult import extract_counts
 
 class QPP:
     

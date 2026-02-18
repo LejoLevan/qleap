@@ -1,6 +1,6 @@
 from qiskit import QuantumCircuit
 from qiskit_aer import AerSimulator
-from SimResult import SimResult
+from .SimResult import SimResult
 
 class QuantumInterface:
     def __init__(self):

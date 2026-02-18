@@ -1,6 +1,6 @@
 from typing import Collection
 
-from QState import QState
+from .QState import QState
 
 class Trace:
    

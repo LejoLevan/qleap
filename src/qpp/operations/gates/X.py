@@ -1,5 +1,5 @@
-from Gate import Gate
-from QState import QState
+from .Gate import Gate
+from ...QState import QState
 from typing import override
 
 class X(Gate):

@@ -1,4 +1,4 @@
-from QPP import QPP
+from .QPP import QPP
 
 class QState:
 

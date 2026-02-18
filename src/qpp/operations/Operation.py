@@ -1,5 +1,5 @@
-from QState import QState
-from QPP import QPP
+from ..QState import QState
+from ..QPP import QPP
 
 class Operation():
 
