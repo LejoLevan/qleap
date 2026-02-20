@@ -1,9 +1,4 @@
-from Qubit import Qubit
-from Hadamard import Hadamard
-from Measurement import Measurement
-from Cnot import Cnot
-from QPP import QPP
-from QState import QState
+from qpp_test import Qubit, QState, Hadamard, Cnot, Measurement, QPP
 
 if __name__ == '__main__':
     print('running')
@@ -39,7 +34,7 @@ if __name__ == '__main__':
 
     qs = QState(2)
     q0 = qs[0]
-    q1 = Qubit()
+    q1 = Qubit(qs, 1)
 
     Hadamard(qs[0])
     Cnot(q0, qs[1])
