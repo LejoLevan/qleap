@@ -1,5 +1,5 @@
 from .QState import QState
-from ._SimResult import extract_counts
+from .SimResult import extract_counts
 
 class Qubit(QState):
 

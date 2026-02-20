@@ -45,7 +45,7 @@ class QState:
             if index >= len(self):
                 raise IndexError(f"Index {int} is out of bounds for QState of length {len(self)}")
             
-            from Qubit import Qubit
+            from .Qubit import Qubit
             return Qubit(self, index)
     
     def _add_result(self, outcome, count):
