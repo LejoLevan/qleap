@@ -3,8 +3,17 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "qpp_test"
-version = "0.0.2"
+name = "qleap"
+version = "0.0.1"
+authors = [
+    { name = "Jonathan Le", email = "jonathan.le@uconn.edu" },
+    { name = "Avery Hogrefe", email = "avery.hogrefe@uconn.edu" }
+]
+description = "Accessable quantum programming interface for quantum computing education and research."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 dependencies = [
     "qiskit>=1.0,<2.0",
     "qiskit-aer>=0.13,<1.0"
