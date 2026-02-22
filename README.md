@@ -1,3 +1,5 @@
+# QLeap
+
 QLeap is a new quantum programming language developed by our team. The goal of QLeap is to fill the
 role of a quantum programming language which is simple, readable, and easy to use. Our team designed QLeap with the intention that it is both accessible to newcomers and viable for professional and research applications. 
 
