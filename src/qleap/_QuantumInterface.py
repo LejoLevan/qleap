@@ -39,6 +39,13 @@ class QuantumInterface:
         for outcome in counts:
             reversed_counts[outcome[::-1]] = counts[outcome] 
 
+    def toQASM(self):
+        """
+        Generates OPENQASM 3.0 code
+        """
+
+        qasm_code = dumps(self._qc)
+        return qasm_code
         qppResult = SimResult()
         qppResult.counts = reversed_counts
 
