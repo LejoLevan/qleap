@@ -3,7 +3,7 @@ from typing import override
 
 from ._Operation import Operation
 from ..QState import QState
-from ..QPP import QPP
+from ..Qleap import Qleap
 
 class Measurement(Operation):
 
@@ -20,8 +20,12 @@ class Measurement(Operation):
     def _apply(self, qi):
         
         for target in self._targets:
-            QPP.record_measurement(target)
+            Qleap.record_measurement(target)
             qi.measure(
                 start=target._start, 
                 end=target._end
             )
+
+    @override
+    def has_measurement(self):
+        return True
