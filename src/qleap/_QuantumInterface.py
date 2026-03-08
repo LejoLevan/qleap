@@ -1,4 +1,6 @@
 from qiskit import QuantumCircuit
+from qiskit.quantum_info import DensityMatrix, Statevector
+from qiskit.exceptions import QiskitError
 from qiskit_aer import AerSimulator
 from .SimResult import SimResult
 
@@ -25,21 +27,51 @@ class QuantumInterface:
     def draw(self):
         print(self._qc)
 
-    def simulate(self):
+    def simulate(self, shots):
         """
         Simulates this quantum circuit locally
 
         Output: counts of the results
         """
-        result = AerSimulator().run(self._qc).result()
-        counts = result.get_counts()
-        
-        # Fix the order of qubits in the result
-        reversed_counts = dict()
-        for outcome in counts:
-            reversed_counts[outcome[::-1]] = counts[outcome] 
 
+        result = AerSimulator().run(self._qc, shots=shots).result()
         qppResult = SimResult()
-        qppResult.counts = reversed_counts
+
+        try:
+            counts = result.get_counts()
+            
+            # Fix the order of qubits in the result
+            reversed_counts = dict()
+            for outcome in counts:
+                reversed_counts[outcome[::-1]] = counts[outcome] 
+
+            qppResult.counts = reversed_counts
+        except QiskitError:
+            pass
 
         return qppResult
+    
+    def evolve_density_matrix(self, dmat):
+        """
+        Note: Requires no measurements
+        """
+
+        rho = DensityMatrix(dmat)
+        return rho.evolve(self._qc).data
+    
+    def evolve_vector(self, vec):
+        """
+        No measurements please
+        """
+
+        statevec = Statevector(vec)
+        return statevec.evolve(self._qc).data
+    
+    def measure_vector(self, vec):
+        """
+        Measures the vector
+        """
+
+        statevec = Statevector(vec)
+        outcome, result_state = statevec.measure()
+        return outcome, result_state.data
