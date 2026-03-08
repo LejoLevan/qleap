@@ -14,3 +14,7 @@ class X(Gate):
                 start=target._start, 
                 end=target._end
             )
+
+    @override
+    def _apply_inverse(self, qi):
+        self._apply(qi)
