@@ -43,3 +43,11 @@ class QuantumInterface:
         qppResult.counts = reversed_counts
 
         return qppResult
+
+    def toQASM(self):
+        """
+        Generates OPENQASM 3.0 code
+        """
+
+        qasm_code = dumps(self._qc)
+        return qasm_code

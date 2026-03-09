@@ -96,6 +96,14 @@ class QPP:
         return cls._results
 
     @classmethod
+    def toQASM(cls):
+        """
+        Generates OpenQASM code from the quantum circuit
+        """
+        cls._construct()
+        return cls._qi.toQASM()
+    
+    @classmethod
     def clear(cls):
         """
         Resets the quantum program
