@@ -1,5 +1,5 @@
 from ..QState import QState
-from ..QPP import QPP
+from ..Qleap import Qleap
 
 class Operation():
 
@@ -11,7 +11,13 @@ class Operation():
         """
 
         self._targets = args
-        QPP._add_operation(self)
+        Qleap._add_operation(self)
 
     def _apply(self, qi):
+        raise NotImplementedError
+    
+    def _apply_inverse(self, qi):
+        raise NotImplementedError
+    
+    def has_measurement(self):
         raise NotImplementedError

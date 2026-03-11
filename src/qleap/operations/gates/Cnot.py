@@ -14,3 +14,7 @@ class Cnot(Gate):
     def _apply(self, qi):
         for target in self._targets:
             qi.cnot(self._control._start, target._start) # type: ignore
+
+    @override
+    def _apply_inverse(self, qi):
+        self._apply(qi)

@@ -1,7 +1,9 @@
+from .Trace import Trace
 from ._QuantumInterface import QuantumInterface
-from .SimResult import extract_counts
+from .SimResult import extract_counts, NewSimResult
+from .RunArguments import RunArguments
 
-class QPP:
+class Qleap:
     
     _operation_count = 0
     _qubit_count = 0
@@ -69,12 +71,26 @@ class QPP:
         args: RunArugments object, modifies the run parameters. If omitted,
             uses default arguments.
         """
+        if args is None:
+            args = RunArguments()
+
+        if args.trace:
+            return cls._run_trace(args)
+        
+        return cls._run_sim(args)
+
+    @classmethod
+    def _run_sim(cls, args):
+        """
+        Simulates a number of runs of the quantum program
+        """
+
         cls._qi.create_circuit(numQubits=cls._qubit_count)
         
         for op in cls._operations:
-             op._apply(cls._qi)
+            op._apply(cls._qi)
 
-        cls._results = cls._qi.simulate()
+        cls._results = cls._qi.simulate(args.shots)
         counts = cls._results.counts
 
         kept_counts = set()
@@ -96,18 +112,22 @@ class QPP:
         return cls._results
 
     @classmethod
-    def toQASM(cls):
+    def _run_trace(cls, args):
         """
-        Generates OpenQASM code from the quantum circuit
+        Generates a trace of the quantum program
         """
-        cls._construct()
-        return cls._qi.toQASM()
+
+        cur_state = [0] * (2 ** cls._qubit_count)
+        cur_state[0] = 1
+
+        return Trace(cls._operations, cur_state)
     
     @classmethod
     def clear(cls):
         """
         Resets the quantum program
         """
+        raise NotImplementedError()
 
         cls._operation_count = 0
         cls._qubit_count = 0
