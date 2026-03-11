@@ -1,9 +1,41 @@
+"""
+Qleap.py
+
+This module provides the Qleap class, which serves as the main interface for constructing and running quantum circuits using the QPP framework. 
+The Qleap class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or 
+by generating a trace of the program's execution.
+
+"""
+
 from .Trace import Trace
 from ._QuantumInterface import QuantumInterface
 from .SimResult import extract_counts, NewSimResult
 from .RunArguments import RunArguments
 
 class Qleap:
+    """The QPP class collects an instance of the QuantumInterface and RunArguments class while collecting
+    zero to many instances of the Operation class. This class uses these instances to construct and run a
+    quantum circuit based on user instructions that are abstracted within these instances.
+
+    For the most part, this class and it’s fields/methods aren’t to be accessed by the user with the only
+    exception being the run() method that they should call at the end of a user’s program. The other
+    fields/methods are utilized to handle abstracted logic.
+
+    Parameters 
+    ----------
+    _operation_count : int
+        How many instances of the Operation class has been collected. This is used to determine the order of operations when the run() method is called.
+    _qubit_count : int
+        How many qubits were allocated by the _allocate method by either the QState or Qubit class. This is used to determine how many qubits to create when the run() method is called.
+    _operations : list of Operation
+        The list of operations collected by the QPP class. These are applied in order when the run() method is called.
+    _qi : QuantumInterface
+        The instance of the QuantumInterface class that is used to construct and run the quantum circuit.
+    _results : SimResult
+        The results of the most recent simulation, stored as an instance of the SimResult class. This is used to distribute results to the QState instances that were measured.
+    _measured : set of QState
+        The set of QState instances that were measured. This is used to determine which QState instances to distribute results to when the run() method is called.
+    """
     
     _operation_count = 0
     _qubit_count = 0
@@ -16,23 +48,29 @@ class Qleap:
 
     @classmethod
     def _add_operation(cls, operation):
+        """Private method to add an operation to the list of operations. This is used by the Operation class when an operation is created.
 
+        Parameters
+        ----------
+        operation : Operation
+            The operation to be added to the list of operations.
         """
-        Adds an operation to the Quantum program
 
-        gate: Gate, a gate object to add
-        """
         cls._operations.append(operation)
 
     @classmethod
     def _allocate(cls, count: int) -> int:
-        """
-        Allocates space for qubits.
-        For internal use only.
-        
-        count: int, number of qubits created
+        """Private method to allocate qubits for a QState or Qubit instance. This is used by the QState and Qubit classes when they are created.
 
-        Returns: int, the starting index of the space allocated.
+        Parameters
+        ----------
+        count : int
+            The number of qubits to allocate.
+        
+        Returns
+        -------
+        int
+            The starting index of the allocated qubits.
         """
         
         return_value = cls._qubit_count
@@ -42,35 +80,57 @@ class Qleap:
 
     @classmethod
     def record_measurement(cls, qs):
+        """Records a QState instance that was measured. This is used by the QState class when a QState instance is measured to keep track of which QState instances to distribute results to when the run() method is called.
+
+        Parameters
+        ----------
+        qs : QState
+            The QState instance that was measured.
         """
-        Records measurement of the given QState
-        """
+
         cls._measured.add(qs)
 
     @classmethod
     def get_results(cls):
-        """
-        Returns the results of the most recent simulation, in a dict of {result: count} pairs
+        """Gets the results of the most recent simulation. This is used by the QState class to distribute results to the QState instances that were measured.
+
+        Returns
+        -------
+        simResult
+            The results of the most recent simulation, stored as an instance of the SimResult class.
         """
 
         return cls._results
 
     @classmethod
     def draw(cls):
-        """
-        Draws the constructed circuit that has already run
+        """Draws the quantum circuit that has been constructed by the QPP class.
+
+        Returns
+        -------
+        string
+            The string representation of the quantum circuit.
         """
 
         return cls._qi.draw()
 
     @classmethod
     def run(cls, args=None):
-        """
-        Runs the quantum program created through QPP
+        """Runs the quantum program that has been constructed by the QPP class. 
+        This method simulates the quantum program and distributes results to the QState instances that were measured. 
+        If the trace flag is set in the RunArguments, this method generates a trace of the quantum program instead of simulating it.
 
-        args: RunArugments object, modifies the run parameters. If omitted,
-            uses default arguments.
+        Parameters
+        ----------
+        args : RunArguments, optional
+            The arguments for running the quantum program, by default None
+
+        Returns
+        -------
+        simResult or Trace
+            The results of the simulation as an instance of the SimResult class, or a trace of the quantum program as an instance of the Trace class if the trace flag is set in the RunArguments.
         """
+
         if args is None:
             args = RunArguments()
 
@@ -81,8 +141,17 @@ class Qleap:
 
     @classmethod
     def _run_sim(cls, args):
-        """
-        Simulates a number of runs of the quantum program
+        """Simulates the quantum program that has been constructed by the QPP class and distributes results to the QState instances that were measured.
+
+        Parameters
+        ----------
+        args : RunArguments
+             The arguments for running the quantum program, including the number of shots to simulate and whether to generate a trace instead of simulating.
+
+        Returns
+        -------
+        simResult
+            The results of the simulation as an instance of the SimResult class.
         """
 
         cls._qi.create_circuit(numQubits=cls._qubit_count)
@@ -113,8 +182,17 @@ class Qleap:
 
     @classmethod
     def _run_trace(cls, args):
-        """
-        Generates a trace of the quantum program
+        """Generates a trace of the quantum program that has been constructed by the QPP class. Note: This method requires that no measurements are made in the quantum program.
+
+        Parameters
+        ----------
+        args : RunArguments
+            The arguments for running the quantum program, including the number of shots to simulate and whether to generate a trace instead of simulating.
+
+        Returns
+        -------
+        Trace
+            A trace of the quantum program as an instance of the Trace class.
         """
 
         cur_state = [0] * (2 ** cls._qubit_count)
@@ -124,8 +202,12 @@ class Qleap:
     
     @classmethod
     def clear(cls):
-        """
-        Resets the quantum program
+        """Clears the state of the QPP class, including the list of operations, the quantum interface, and the results. This is used to reset the QPP class after a simulation or trace has been generated.
+
+        Raises
+        ------
+        NotImplementedError
+            This method is not yet implemented.
         """
         raise NotImplementedError()
 
