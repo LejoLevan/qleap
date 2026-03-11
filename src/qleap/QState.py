@@ -1,4 +1,4 @@
-from .QPP import QPP
+from .Qleap import Qleap
 
 class QState:
 
@@ -14,7 +14,7 @@ class QState:
         self._results = dict()
 
         if self._len > 0:
-            self._start = QPP._allocate(length)
+            self._start = Qleap._allocate(length)
             self._end = self._start + length
 
     def __len__(self):
