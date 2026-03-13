@@ -1,6 +1,6 @@
-from .Cnot import Cnot
-from .Hadamard import Hadamard
-from .X import X
+from .cnot import Cnot
+from .hadamard import Hadamard
+from .x import X
 
 __all__ = [
     "Cnot",

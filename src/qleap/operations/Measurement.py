@@ -1,9 +1,9 @@
 from scipy.stats import rv_discrete
 from typing import override
 
-from ._Operation import Operation
-from ..QState import QState
-from ..Qleap import Qleap
+from .operation import Operation
+from ..qstate import QState
+from ..qleap import Qleap
 
 class Measurement(Operation):
 

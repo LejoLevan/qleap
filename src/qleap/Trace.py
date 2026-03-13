@@ -1,4 +1,4 @@
-from ._QuantumInterface import QuantumInterface
+from .quantuminterface import QuantumInterface
 
 from math import log2
 
@@ -8,7 +8,7 @@ class Trace:
         """
         Tracethrough of a quantum program
 
-        steps: Collection of QState, each timestep of the execution
+        steps: Collection of arrays representing statevectors, each timestep of the execution
         """
 
         self.current_time = 0

@@ -1,4 +1,4 @@
-from .Qleap import Qleap
+from .qleap import Qleap
 
 class QState:
 

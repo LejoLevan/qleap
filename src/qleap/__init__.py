@@ -1,8 +1,8 @@
 from .operations import Cnot, Hadamard, X, Measurement
-from .Qleap import Qleap
-from .QState import QState
-from .Qubit import Qubit
-from .RunArguments import RunArguments
+from .qleap import Qleap
+from .qstate import QState
+from .qubit import Qubit
+from .runarguments import RunArguments
 
 __all__ = [
     "Cnot",

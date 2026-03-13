@@ -2,7 +2,7 @@ from qiskit import QuantumCircuit
 from qiskit.quantum_info import DensityMatrix, Statevector
 from qiskit.exceptions import QiskitError
 from qiskit_aer import AerSimulator
-from .SimResult import SimResult
+from .simresult import SimResult
 
 class QuantumInterface:
     def __init__(self):

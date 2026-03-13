@@ -7,10 +7,10 @@ by generating a trace of the program's execution.
 
 """
 
-from .Trace import Trace
-from ._QuantumInterface import QuantumInterface
-from .SimResult import extract_counts, NewSimResult
-from .RunArguments import RunArguments
+from .trace import Trace
+from .quantuminterface import QuantumInterface
+from .simresult import extract_counts
+from .runarguments import RunArguments
 
 class Qleap:
     """The QPP class collects an instance of the QuantumInterface and RunArguments class while collecting
