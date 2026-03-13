@@ -6,7 +6,7 @@ When the Hadamard gate is applied to a qubit in the :math:`\ket{0}` state, which
 We know that they are equally likely to be measured as either :math:`\ket{0}` or :math:`\ket{1}` by squaring the amplitudes.
 
 To create a qubit in superposition using the Hadamard gate, we begin with the following code:
-:: code-block:: python
+.. code-block:: python
 
     from qleap import Qleap, Qubit, Hadamard, Measurement
 
