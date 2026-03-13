@@ -26,14 +26,10 @@ jobs:
         pip install -r docs/requirements.txt
 
     - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
+      run: |
+        cd docs
+        make html
       
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: html-docs
-        path: docs/build/html/
-
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       if: github.ref == 'refs/heads/main'
