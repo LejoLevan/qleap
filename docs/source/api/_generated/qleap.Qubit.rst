@@ -15,7 +15,6 @@
    
       ~Qubit.__init__
       ~Qubit.get_results
-      ~Qubit.show
    
    
 
