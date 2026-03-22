@@ -6,10 +6,10 @@ The results of the measurement are printed to the console.
 
 .. code-block:: python
 
-    from qleap import Qleap, Qubit, Hadamard, Measurement
+    from qleap import QLeap, Qubit, Hadamard, Measurement
 
-    # Create a Qleap instance
-    qleap = Qleap()
+    # Create a Leap instance
+    qleap = QLeap()
 
     # Create a qubit
     q = Qubit()
