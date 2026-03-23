@@ -14,7 +14,6 @@
    .. autosummary::
    
       ~Hadamard.__init__
-      ~Hadamard.has_measurement
    
    
 

@@ -1,9 +1,9 @@
-﻿qleap.Qleap
+﻿qleap.QLeap
 ===========
 
 .. currentmodule:: qleap
 
-.. autoclass:: Qleap
+.. autoclass:: QLeap
 
    
    .. automethod:: __init__
@@ -13,12 +13,11 @@
 
    .. autosummary::
    
-      ~Qleap.__init__
-      ~Qleap.clear
-      ~Qleap.draw
-      ~Qleap.get_results
-      ~Qleap.record_measurement
-      ~Qleap.run
+      ~QLeap.__init__
+      ~QLeap.clear
+      ~QLeap.draw
+      ~QLeap.get_results
+      ~QLeap.run
    
    
 
