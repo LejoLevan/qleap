@@ -11,9 +11,6 @@ To create a qubit in superposition using the Hadamard gate, we begin with the fo
 
     from qleap import QLeap, Qubit, Hadamard, Measurement
 
-    # Create a Leap instance
-    qleap = QLeap()
-
     # Create a qubit
     q = Qubit()
 
@@ -24,13 +21,12 @@ To create a qubit in superposition using the Hadamard gate, we begin with the fo
     Measurement(q)
 
     # Run the quantum program
-    qleap.run()
+    QLeap.run()
 
     # Print the measurement result
-    print(f'Measurement result: {qleap.get_results()}')
+    print(f'Measurement result: {QLeap.get_results()}')
 
-In this code, we first import the necessary classes from the QLeap library. We create an instance of the QLeap class, which serves as the main interface for building and running quantum programs.
-Next, we create a qubit using the Qubit class. By default, the qubit is initialized in the :math:`\ket{0}` state. We then apply the Hadamard gate to the qubit, which puts it into a superposition state.
+In this code, we first import the necessary classes from the QLeap library. We create a qubit using the Qubit class. By default, the qubit is initialized in the :math:`\ket{0}` state. We then apply the Hadamard gate to the qubit, which puts it into a superposition state.
 After applying the Hadamard gate, we measure the qubit using the Measurement class. This collapses the superposition state back to either :math:`\ket{0}` or :math:`\ket{1}` with equal probability.
 Finally, we run the quantum program using the `run()` method of the QLeap instance and print the measurement result.
 

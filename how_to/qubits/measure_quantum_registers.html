@@ -278,9 +278,6 @@ The results of the measurement will be stored in the <cite>QLeap</cite> instance
 They are also stored the <cite>QState</cite> object itself, which can be accessed using the <cite>get_results()</cite> method of the <cite>QState</cite> and <cite>Qubit</cite> class. This allows you to easily access the measurement results directly from the quantum register object after measurement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Measurement</span>
 
-<span class="c1"># Create a Leap instance</span>
-<span class="n">qleap</span> <span class="o">=</span> <span class="n">QLeap</span><span class="p">()</span>
-
 <span class="c1"># Create a quantum register with 3 qubits</span>
 <span class="n">qreg</span> <span class="o">=</span> <span class="n">QState</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
@@ -288,17 +285,17 @@ They are also stored the <cite>QState</cite> object itself, which can be accesse
 <span class="n">Measurement</span><span class="p">(</span><span class="n">qreg</span><span class="p">)</span>
 
 <span class="c1"># Run the quantum program</span>
-<span class="n">qleap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">QLeap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Print the measurement result</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">qleap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">QLeap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># Alternatively, you can also access the measurement results directly from the QState object</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result from QState: </span><span class="si">{</span><span class="n">qreg</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this code, we first create a quantum register with 3 qubits using the <cite>QState</cite> class. We then measure the quantum register using the <cite>Measurement</cite> class, which collapses the quantum state of the register into a classical state.
-After running the quantum program, we print the measurement results using the <cite>get_results()</cite> method of the <cite>QLeap</cite> instance. We also demonstrate how to access the measurement results directly from the <cite>QState</cite> object using its own <cite>get_results()</cite> method.
+After running the quantum program, we print the measurement results using the <cite>get_results()</cite> method of the <cite>QLeap</cite> class. We also demonstrate how to access the measurement results directly from the <cite>QState</cite> object using its own <cite>get_results()</cite> method.
 The results, if working correctly, should show that all qubits in the register are in a superposition state before measurement, and the measurement results will be either 0 or 1 for each qubit, demonstrating that they were in superposition before measurement.
 Both methods of accessing the measurement results should yield the same output, confirming that the measurement was successful and the results are consistent.</p>
 </section>

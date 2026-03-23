@@ -276,9 +276,6 @@
 This method generates a visual representation of the quantum circuit, showing the qubits, gates, and measurements in a clear and intuitive way.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
 
-<span class="c1"># Create a Leap instance</span>
-<span class="n">qleap</span> <span class="o">=</span> <span class="n">QLeap</span><span class="p">()</span>
-
 <span class="c1"># Create a quantum register with 2 qubits</span>
 <span class="n">qreg</span> <span class="o">=</span> <span class="n">QState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
@@ -290,14 +287,14 @@ This method generates a visual representation of the quantum circuit, showing th
 <span class="n">Measurement</span><span class="p">(</span><span class="n">qreg</span><span class="p">)</span>
 
 <span class="c1"># Run the quantum program</span>
-<span class="n">qleap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">QLeap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Draw the quantum circuit</span>
-<span class="n">qleap</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="n">QLeap</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>In this code, we first create a quantum register with 2 qubits using the <cite>QState</cite> class. We then apply the Hadamard gate to both qubits in the register, putting them into a superposition state. Next, we measure the qubits and run the quantum program.
-Finally, we call the <cite>draw()</cite> method of the <cite>QLeap</cite> instance to visualize the quantum circuit. The resulting diagram will show the two qubits, the Hadamard gates applied to each qubit, and the measurement operation at the end of the circuit.
+Finally, we call the <cite>draw()</cite> method of the <cite>QLeap</cite> class to visualize the quantum circuit. The resulting diagram will show the two qubits, the Hadamard gates applied to each qubit, and the measurement operation at the end of the circuit.
 The <cite>draw()</cite> method provides a clear and intuitive visualization of the quantum circuit, making it easier to understand the sequence of operations and the structure of the circuit. This can be especially helpful for debugging and for communicating quantum algorithms to others.</p>
 </section>
 

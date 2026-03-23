@@ -278,9 +278,6 @@ We know that they are equally likely to be measured as either <span class="math 
 <p>To create a qubit in superposition using the Hadamard gate, we begin with the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
 
-<span class="c1"># Create a Leap instance</span>
-<span class="n">qleap</span> <span class="o">=</span> <span class="n">QLeap</span><span class="p">()</span>
-
 <span class="c1"># Create a qubit</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">()</span>
 
@@ -291,14 +288,13 @@ We know that they are equally likely to be measured as either <span class="math 
 <span class="n">Measurement</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 
 <span class="c1"># Run the quantum program</span>
-<span class="n">qleap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">QLeap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Print the measurement result</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">qleap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">QLeap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In this code, we first import the necessary classes from the QLeap library. We create an instance of the QLeap class, which serves as the main interface for building and running quantum programs.
-Next, we create a qubit using the Qubit class. By default, the qubit is initialized in the <span class="math notranslate nohighlight">\(\ket{0}\)</span> state. We then apply the Hadamard gate to the qubit, which puts it into a superposition state.
+<p>In this code, we first import the necessary classes from the QLeap library. We create a qubit using the Qubit class. By default, the qubit is initialized in the <span class="math notranslate nohighlight">\(\ket{0}\)</span> state. We then apply the Hadamard gate to the qubit, which puts it into a superposition state.
 After applying the Hadamard gate, we measure the qubit using the Measurement class. This collapses the superposition state back to either <span class="math notranslate nohighlight">\(\ket{0}\)</span> or <span class="math notranslate nohighlight">\(\ket{1}\)</span> with equal probability.
 Finally, we run the quantum program using the <cite>run()</cite> method of the QLeap instance and print the measurement result.</p>
 <p>When you run this code, you should see that the measurement result is either 0 or 1, demonstrating that the qubit was in a superposition state before measurement.</p>
