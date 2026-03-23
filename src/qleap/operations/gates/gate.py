@@ -9,5 +9,5 @@ class Gate(Operation):
         """
         super().__init__(target)
 
-    def has_measurement(self):
+    def _has_measurement(self):
         return False

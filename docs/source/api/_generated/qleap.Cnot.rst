@@ -14,7 +14,6 @@
    .. autosummary::
    
       ~Cnot.__init__
-      ~Cnot.has_measurement
    
    
 
