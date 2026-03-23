@@ -5,6 +5,7 @@ on:
     branch:
       - main
       - dev
+      - feature-spinx
 
 jobs:
   build:
