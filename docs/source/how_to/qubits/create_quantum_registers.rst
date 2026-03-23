@@ -8,9 +8,6 @@ or you can create individual `Qubit` instances.
 
     from qleap import QLeap, QState, Qubit, Measurement
 
-    # Create a Leap instance
-    qleap = QLeap()
-
     # Create a quantum register with 3 qubits
     qreg = QState(3)
 
@@ -23,12 +20,11 @@ or you can create individual `Qubit` instances.
     Measurement(qreg)
 
     # Run the quantum program
-    qleap.run()
+    QLeap.run()
 
     # Print the measurement result
-    print(f'Measurement result: {qleap.get_results()}')
+    print(f'Measurement result: {QLeap.get_results()}')
 
-In this code, we first create an instance of the `QLeap` class, which serves as the main interface for building and running quantum programs.
-Next, we create a quantum register with 3 qubits using the `QState` class. This allows us to represent multiple qubits as a single entity, which can be useful for applying gates and measurements to multiple qubits at once.
+In this code, we create a quantum register with 3 qubits using the `QState` class. This allows us to represent multiple qubits as a single entity, which can be useful for applying gates and measurements to multiple qubits at once.
 Alternatively, we can create individual `Qubit` instances for each qubit we want to use in our quantum program. This gives us more flexibility to manipulate each qubit separately.
 Finally, we measure the quantum register, run the quantum program, and print the measurement result. The results, if working correctly, should all be 0 since the qubits are initialized in the :math:`\ket{0}` state by default.
