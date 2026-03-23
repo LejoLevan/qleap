@@ -15,7 +15,6 @@
    
       ~QState.__init__
       ~QState.get_results
-      ~QState.show
    
    
 

@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Basic Superposition" href="basic_superposition.html"><link rel="prev" title="Quickstart" href="../start/quickstart.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="qleap.X" href="../api/_generated/qleap.X.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Tutorials - qleap documentation</title>
+        <title>Architecture - qleap documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -197,8 +197,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../start/quickstart.html">Quickstart</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Tutorials</a><input aria-label="Toggle navigation of Tutorials" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_superposition.html">Basic Superposition</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_superposition.html">Basic Superposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_to/index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -231,7 +231,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Architecture</a></li>
 </ul>
 
 </div>
@@ -252,7 +252,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/tutorials/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/architecture/index.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -265,21 +265,82 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">¶</a></h1>
-<p>This section contains tutorials that demonstrate how to use Qleap for various quantum programming tasks.
-Each tutorial is designed to be accessible to both beginners and experienced programmers, providing step-by-step instructions and explanations of the concepts involved.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="basic_superposition.html">Basic Superposition</a></li>
-</ul>
-</div>
+          <section id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">¶</a></h1>
+<p>This section provides an overview of the architecture of the QLeap quantum programming language. It covers each class and its role in the overall design of the language, as well as how they interact with each other to enable quantum programming.
+The architecture is designed to be modular and extensible, allowing for future enhancements and additions to the language.</p>
+<section id="uml-diagram">
+<h2>UML Diagram<a class="headerlink" href="#uml-diagram" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/uml.drawio.png"><img alt="../_images/uml.drawio.png" src="../_images/uml.drawio.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">UML diagram of the QLeap architecture, showing the main classes and their relationships.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qleap-class">
+<h2>QLeap Class<a class="headerlink" href="#qleap-class" title="Link to this heading">¶</a></h2>
+<p>The QLeap class collects an instance of the QuantumInterface and RunArguments class while collecting
+zero to many instances of the Operation class. This class uses these instances to construct and run a
+quantum circuit based on user instructions that are abstracted within these instances.</p>
+</section>
+<section id="quantuminterface-class">
+<h2>QuantumInterface Class<a class="headerlink" href="#quantuminterface-class" title="Link to this heading">¶</a></h2>
+<p>The QuantumInterface class is constructed such that it is the only interacting component within the
+API that accesses any external component; in this case, the external component is Qiskit from
+which the class stores instances of classes. In particular, the class stores an instance of the QuantumCircuit
+class from Qiskit as QLeap’s backbone. However, if there were to be a need to switch out Qiskit as the
+backend, the class allows for easy modification as the only class that needs to be adapted to the
+new backend library. Within the class lies the specific logic to construct a Quantum circuit as it is tied
+to whatever library that QLeap is wrapping. Alongside that, all possible operations within the circuit are
+referenced back to it’s counterpart in the wrapped library.</p>
+<p>It is important to note that this class is not intended to be accessible by the user and is a class that is
+constructed to abstract complex logic. While it substantiates the logic to the various quantum operations,
+specific information of the said operations should be examined within the relevant class definitions.</p>
+</section>
+<section id="runarguments-class">
+<h2>RunArguments Class<a class="headerlink" href="#runarguments-class" title="Link to this heading">¶</a></h2>
+<p>The RunArguments class contains parameters that relate to the runtime of the Quantum Circuit. The
+user must either allow for a default set or configure custom selections. The class gets collected one to one
+into the QLeap class. As of now, the class is not implemented within the code base.</p>
+</section>
+<section id="operation-class">
+<h2>Operation Class<a class="headerlink" href="#operation-class" title="Link to this heading">¶</a></h2>
+<p>The Operation class is a parent class for any child quantum operations class such as measurement or the
+various quantum gates. Zero to many instances of this class are collected into the QLeap class. In addition,
+zero to many instances of this class aggregate one to many instances of the QState class and/or the Qubit
+class. All child classes are aware of the QuantumInterface class in order to define how they apply onto
+the constructed quantum circuit.</p>
+<p>Users are not intended to utilize this class in their programs; instead, users should use the defined
+child classes.</p>
+</section>
+<section id="measurement-class">
+<h2>Measurement Class<a class="headerlink" href="#measurement-class" title="Link to this heading">¶</a></h2>
+<p>The Measurement class is a child of the Operation class that pertains to measurement operations on the quantum circuit.</p>
+</section>
+<section id="gate-class">
+<h2>Gate Class<a class="headerlink" href="#gate-class" title="Link to this heading">¶</a></h2>
+<p>The Gate class is a child of the Operation class and is the parent class of any subsequent quantum gate class within the wrapper library. It is constructed to denote the differentiation between operations.</p>
+</section>
+<section id="hadamard-cnot-x-classes">
+<h2>Hadamard/CNOT/X Classes<a class="headerlink" href="#hadamard-cnot-x-classes" title="Link to this heading">¶</a></h2>
+<p>The Hadamard/CNOT/X classes is a child of the Gate and Operation class that pertains to applying the Hadamard/CNOT/X gates onto qubits.</p>
+</section>
+<section id="qstate-class">
+<h2>QState Class<a class="headerlink" href="#qstate-class" title="Link to this heading">¶</a></h2>
+<p>The QState class is the parent class of the Qubit class and refers to a collection of Qubits. One to many instances of the class are aggregated into zero to many instances of the Operation class and it’s child classes. The class and it’s child are aware of the QLeap class, which is needed upon initialization of any instance.</p>
+<p>The class and it’s child calls upon the _allocate() method in QLeap in order to initialize the start and end fields, the length between those two indices corresponds to the _len field defined by the user during instance creation. The QLeap class allocates based on it’s _qubit_count field which tracks how many qubits have been created and the end index of the previous qubit allocation call.</p>
+</section>
+<section id="qubit-class">
+<h2>Qubit Class<a class="headerlink" href="#qubit-class" title="Link to this heading">¶</a></h2>
+<p>The Qubit class is a child class of the QState class. It initializes the same way as it’s parent class; however, the length is predetermined to be of size one.</p>
+</section>
 </section>
 
         </article>
@@ -287,23 +348,15 @@ Each tutorial is designed to be accessible to both beginners and experienced pro
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="basic_superposition.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Basic Superposition</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../start/quickstart.html">
+          
+          <a class="prev-page" href="../api/_generated/qleap.X.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Quickstart</div>
+                <div class="title">qleap.X</div>
                 
               </div>
             </a>
@@ -325,8 +378,36 @@ Each tutorial is designed to be accessible to both beginners and experienced pro
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Architecture</a><ul>
+<li><a class="reference internal" href="#uml-diagram">UML Diagram</a></li>
+<li><a class="reference internal" href="#qleap-class">QLeap Class</a></li>
+<li><a class="reference internal" href="#quantuminterface-class">QuantumInterface Class</a></li>
+<li><a class="reference internal" href="#runarguments-class">RunArguments Class</a></li>
+<li><a class="reference internal" href="#operation-class">Operation Class</a></li>
+<li><a class="reference internal" href="#measurement-class">Measurement Class</a></li>
+<li><a class="reference internal" href="#gate-class">Gate Class</a></li>
+<li><a class="reference internal" href="#hadamard-cnot-x-classes">Hadamard/CNOT/X Classes</a></li>
+<li><a class="reference internal" href="#qstate-class">QState Class</a></li>
+<li><a class="reference internal" href="#qubit-class">Qubit Class</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

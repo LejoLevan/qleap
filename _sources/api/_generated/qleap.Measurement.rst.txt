@@ -14,7 +14,6 @@
    .. autosummary::
    
       ~Measurement.__init__
-      ~Measurement.has_measurement
    
    
 
