@@ -20,18 +20,6 @@ class QuantumInterface:
 
     def x(self, start, end):
         self._qc.x(range(start, end)) # type: ignore
-
-    def z(self, start, end):
-        self._qc.z(range(start, end))
-
-    def QFT(self, start, end):
-        self._qc.compose(QFT(end - start), qubits=range(start, end), inplace=True)
-
-    def invQFT(self, start, end):
-        self._qc.compose(QFT(end - start, inverse=True), qubits=range(start, end), inplace=True)
-
-    def swap(self, first, second):
-        self._qc.swap(first, second)
     
     def measure(self, start, end):
         self._qc.measure(range(start, end), range(start, end)) # type: ignore
