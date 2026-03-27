@@ -1,5 +1,5 @@
 from .operations import Cnot, Hadamard, X, Measurement, Z, QFT, InverseQFT, Swap
-from .qleap import Qleap
+from .qleap import QLeap
 from .qstate import QState
 from .qubit import Qubit
 from .runarguments import RunArguments
@@ -13,7 +13,7 @@ __all__ = [
     "InverseQFT",
     "Swap",
     "Measurement",
-    "Qleap",
+    "QLeap",
     "QState",
     "Qubit",
     "RunArguments"
