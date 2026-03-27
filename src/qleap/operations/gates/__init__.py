@@ -1,5 +1,10 @@
-from .gates import Cnot, Hadamard, X, Z, Swap, QFT, InverseQFT
-from .Measurement import Measurement
+from .cnot import Cnot
+from .hadamard import Hadamard
+from .x import X
+from .z import Z
+from .swap import Swap
+from .qft import QFT
+from .inverseqft import InverseQFT
 
 __all__ = [
     "Cnot",
@@ -8,6 +13,5 @@ __all__ = [
     "Z",
     "Swap",
     "QFT",
-    "InverseQFT",
-    "Measurement"
+    "InverseQFT"
 ]
