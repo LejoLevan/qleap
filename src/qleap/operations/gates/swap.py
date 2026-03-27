@@ -1,4 +1,4 @@
-from ._Gate import Gate
+from .gate import Gate
 from typing import override
 
 class Swap(Gate):
