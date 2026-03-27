@@ -1,15 +1,19 @@
-from .operations import Cnot, Hadamard, X, Measurement
-from .qleap import QLeap
-from .qstate import QState
-from .qubit import Qubit
-from .runarguments import RunArguments
+from .operations import Cnot, Hadamard, X, Measurement, Z, QFT, InverseQFT, Swap
+from .Qleap import Qleap
+from .QState import QState
+from .Qubit import Qubit
+from .RunArguments import RunArguments
 
 __all__ = [
     "Cnot",
     "Hadamard",
     "X",
+    "Z",
+    "QFT",
+    "InverseQFT",
+    "Swap",
     "Measurement",
-    "QLeap",
+    "Qleap",
     "QState",
     "Qubit",
     "RunArguments"
