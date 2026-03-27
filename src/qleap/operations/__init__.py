@@ -1,5 +1,5 @@
 from .gates import Cnot, Hadamard, X, Z, Swap, QFT, InverseQFT
-from .Measurement import Measurement
+from .measurement import Measurement
 
 __all__ = [
     "Cnot",
