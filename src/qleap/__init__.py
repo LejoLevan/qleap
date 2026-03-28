@@ -1,4 +1,4 @@
-from .operations import Cnot, Hadamard, X, Measurement, Z, QFT, InverseQFT, Swap
+from .operations import Cnot, Hadamard, X, Measurement, Z, QFT, Swap
 from .qleap import QLeap
 from .qstate import QState
 from .qubit import Qubit
@@ -10,7 +10,6 @@ __all__ = [
     "X",
     "Z",
     "QFT",
-    "InverseQFT",
     "Swap",
     "Measurement",
     "QLeap",
