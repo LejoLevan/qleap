@@ -4,7 +4,6 @@ from .x import X
 from .z import Z
 from .swap import Swap
 from .qft import QFT
-from .inverseqft import InverseQFT
 
 __all__ = [
     "Cnot",
@@ -13,5 +12,4 @@ __all__ = [
     "Z",
     "Swap",
     "QFT",
-    "InverseQFT"
 ]
