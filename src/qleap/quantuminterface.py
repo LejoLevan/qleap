@@ -1,4 +1,5 @@
 from qiskit import QuantumCircuit
+from qiskit.circuit.library import QFT
 from qiskit.quantum_info import DensityMatrix, Statevector
 from qiskit.exceptions import QiskitError
 from qiskit_aer import AerSimulator
@@ -20,6 +21,21 @@ class QuantumInterface:
 
     def x(self, start, end):
         self._qc.x(range(start, end)) # type: ignore
+
+    def z(self, start, end):
+        self._qc.z(range(start, end))
+
+    def QFT(self, start, end):
+        self._qc.compose(QFT(end - start), qubits=range(start, end), inplace=True)
+
+    def invQFT(self, start, end):
+        self._qc.compose(QFT(end - start, inverse=True), qubits=range(start, end), inplace=True)
+
+    def swap(self, first, second):
+        self._qc.swap(first, second)
+
+    def cswap(self, control, first, second):
+        self._qc.cswap(control, first, second)
     
     def measure(self, start, end):
         self._qc.measure(range(start, end), range(start, end)) # type: ignore
