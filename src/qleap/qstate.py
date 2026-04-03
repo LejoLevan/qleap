@@ -102,11 +102,3 @@ class QState:
             A dictionary mapping measurement outcomes to their frequencies.
         """
         return self._results
-
-
-    def _show(self):
-        """
-        Shows a representation of this QState
-        """
-
-        #TODO: make a nice representation of this QState
