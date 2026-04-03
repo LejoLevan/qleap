@@ -32,7 +32,7 @@ class Measurement(Operation):
     def _apply(self, qi):
         
         for target in self._targets:
-            QLeap.record_measurement(target)
+            QLeap._record_measurement(target)
             qi.measure(
                 start=target._start, 
                 end=target._end
