@@ -18,6 +18,7 @@
       ~QLeap.draw
       ~QLeap.get_results
       ~QLeap.run
+      ~QLeap.toQASM
    
    
 
