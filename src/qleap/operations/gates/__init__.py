@@ -3,7 +3,7 @@ from .hadamard import Hadamard
 from .x import X
 from .z import Z
 from .swap import Swap
-from .qft import QFT
+from .qft import Qft
 
 __all__ = [
     "Cnot",
@@ -11,5 +11,5 @@ __all__ = [
     "X",
     "Z",
     "Swap",
-    "QFT",
+    "Qft",
 ]
