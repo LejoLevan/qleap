@@ -213,7 +213,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.QLeap.html">qleap.QLeap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Circuit.html">qleap.Circuit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
 </ul>
 </li>
@@ -274,7 +274,7 @@
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h1>
 <p>This example creates a qubit in superposition using the Hadamard gate, then measures the qubit to collapse it back to a classical state.
 The results of the measurement are printed to the console.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
 
 <span class="c1"># Create a qubit</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">()</span>
@@ -286,10 +286,10 @@ The results of the measurement are printed to the console.</p>
 <span class="n">Measurement</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 
 <span class="c1"># Run the quantum program</span>
-<span class="n">QLeap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">Circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Print the measurement result</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">QLeap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">Circuit</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For a more detailed explanation of superposition and the Hadamard gate, see the <a class="reference internal" href="../tutorials/basic_superposition.html"><span class="doc">Basic Superposition</span></a> tutorial.</p>

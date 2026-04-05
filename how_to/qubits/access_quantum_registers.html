@@ -213,7 +213,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.QLeap.html">qleap.QLeap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Circuit.html">qleap.Circuit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
 </ul>
 </li>
@@ -279,7 +279,7 @@ If you have created individual <cite>Qubit</cite> instances, you can access and 
 <p><cite>QState</cite> splice objects also support slicing, allowing you to access a range of qubits within the register. For example, if you want to access the first two qubits in a register, you can use <cite>qreg[0:2]</cite>, which will return a new <cite>QState</cite> object containing those qubits.
 You can also use negative indexing to access qubits from the end of the register. For example, <cite>qreg[-1]</cite> will give you the last qubit in the register, <cite>qreg[-2]</cite> will give you the second-to-last qubit, and so on. This allows for flexible access to qubits within a quantum register, making it easier to manipulate and apply gates to specific qubits as needed.</p>
 <p>Then both <cite>QState</cite> and <cite>Qubit</cite> objects can return length using the <cite>len()</cite> function, which will return the number of qubits in the register or the number of qubits in a <cite>QState</cite> slice. This can be useful for iterating over qubits in a register or for checking the size of a quantum register before applying gates or measurements.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
 
 <span class="c1"># Create a quantum register with 3 qubits</span>
 <span class="n">qreg</span> <span class="o">=</span> <span class="n">QState</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -298,10 +298,10 @@ You can also use negative indexing to access qubits from the end of the register
 <span class="n">Measurement</span><span class="p">(</span><span class="n">qreg</span><span class="p">)</span>
 
 <span class="c1"># Run the quantum program</span>
-<span class="n">QLeap</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">Circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># Print the measurement result</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">QLeap</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">Circuit</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this code, we first create a quantum register with 3 qubits using the <cite>QState</cite> class.

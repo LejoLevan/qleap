@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="qleap.RunArguments" href="qleap.RunArguments.html"><link rel="prev" title="Core Classes" href="../qleap_core.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>qleap.QLeap - qleap documentation</title>
+        <title>qleap.Circuit - qleap documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -191,7 +191,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../start/index.html">Getting Started</a><input aria-label="Toggle navigation of Getting Started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../start/installation.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../start/quickstart.html">Quickstart</a></li>
@@ -211,9 +211,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../how_to/draw_circuit.html">How To: Draw Quantum Circuits</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="qleap.QLeap.html">qleap.QLeap</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">qleap.Circuit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qleap.RunArguments.html">qleap.RunArguments</a></li>
 </ul>
 </li>
@@ -252,7 +252,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/api/_generated/qleap.Qleap.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/api/_generated/qleap.Circuit.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -270,38 +270,41 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="qleap-qleap">
-<h1>qleap.QLeap<a class="headerlink" href="#qleap-qleap" title="Link to this heading">¶</a></h1>
+          <section id="qleap-circuit">
+<h1>qleap.Circuit<a class="headerlink" href="#qleap-circuit" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="qleap.QLeap">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">qleap.</span></span><span class="sig-name descname"><span class="pre">QLeap</span></span><a class="headerlink" href="#qleap.QLeap" title="Link to this definition">¶</a></dt>
-<dd><p>QLeap is the main class for running quantum circuits.</p>
-<p>The QLeap class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or by generating a trace of the program’s execution.
-The QLeap class is designed to be used in conjunction with the Operation, QState, and Qubit classes, which are used to construct quantum circuits.
-When an Operation is created, it is added to the list of operations in the QLeap class. When a QState or Qubit is created, qubits are allocated for it using the private allocate method in the QLeap class.</p>
+<dt class="sig sig-object py" id="qleap.Circuit">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">qleap.</span></span><span class="sig-name descname"><span class="pre">Circuit</span></span><a class="headerlink" href="#qleap.Circuit" title="Link to this definition">¶</a></dt>
+<dd><p>Circuit is the main class for running quantum circuits.</p>
+<p>The Circuit class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or by generating a trace of the program’s execution.
+The Circuit class is designed to be used in conjunction with the Operation, QState, and Qubit classes, which are used to construct quantum circuits.
+When an Operation is created, it is added to the list of operations in the Circuit class. When a QState or Qubit is created, qubits are allocated for it using the private allocate method in the Circuit class.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="qleap.QLeap.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qleap.QLeap.__init__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="qleap.Circuit.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qleap.Circuit.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#qleap.QLeap.__init__" title="qleap.QLeap.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#qleap.Circuit.__init__" title="qleap.Circuit.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code>()</p></td>
-<td><p>Clears the state of the QLeap class, including the list of operations, the quantum interface, and the results.</p></td>
+<td><p>Clears the state of the Circuit class, including the list of operations, the quantum interface, and the results.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw</span></code>()</p></td>
-<td><p>Draws the quantum circuit that has been constructed by the QLeap class.</p></td>
+<td><p>Draws the quantum circuit that has been constructed by the Circuit class.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_results</span></code>()</p></td>
 <td><p>Gets the results of the most recent simulation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code>([args])</p></td>
-<td><p>Runs the quantum program that has been constructed by the QLeap class.</p></td>
+<td><p>Runs the quantum program that has been constructed by the Circuit class.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">toQASM</span></code>()</p></td>
+<td><p>Converts the quantum program that has been constructed by the Circuit class to openQASM 3.0 code.</p></td>
 </tr>
 </tbody>
 </table>
@@ -315,8 +318,26 @@ When an Operation is created, it is added to the list of operations in the QLeap
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="qleap.RunArguments.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">qleap.RunArguments</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../qleap_core.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Core Classes</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -347,9 +368,9 @@ When an Operation is created, it is added to the list of operations in the QLeap
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">qleap.QLeap</a><ul>
-<li><a class="reference internal" href="#qleap.QLeap"><code class="docutils literal notranslate"><span class="pre">qleap.QLeap</span></code></a><ul>
-<li><a class="reference internal" href="#qleap.QLeap.__init__"><code class="docutils literal notranslate"><span class="pre">qleap.QLeap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#">qleap.Circuit</a><ul>
+<li><a class="reference internal" href="#qleap.Circuit"><code class="docutils literal notranslate"><span class="pre">qleap.Circuit</span></code></a><ul>
+<li><a class="reference internal" href="#qleap.Circuit.__init__"><code class="docutils literal notranslate"><span class="pre">qleap.Circuit.__init__()</span></code></a></li>
 </ul>
 </li>
 </ul>
