@@ -17,15 +17,15 @@ They are also stored the `QState` object itself, which can be accessed using the
     Measurement(qreg)
 
     # Run the quantum program
-    QLeap.run()
+    Circuit.run()
 
     # Print the measurement result
-    print(f'Measurement result: {QLeap.get_results()}')
+    print(f'Measurement result: {Circuit.get_results()}')
 
     # Alternatively, you can also access the measurement results directly from the QState object
     print(f'Measurement result from QState: {qreg.get_results()}')
 
 In this code, we first create a quantum register with 3 qubits using the `QState` class. We then measure the quantum register using the `Measurement` class, which collapses the quantum state of the register into a classical state.
-After running the quantum program, we print the measurement results using the `get_results()` method of the `QLeap` class. We also demonstrate how to access the measurement results directly from the `QState` object using its own `get_results()` method.
+After running the quantum program, we print the measurement results using the `get_results()` method of the `Circuit` class. We also demonstrate how to access the measurement results directly from the `QState` object using its own `get_results()` method.
 The results, if working correctly, should show that all qubits in the register are in a superposition state before measurement, and the measurement results will be either 0 or 1 for each qubit, demonstrating that they were in superposition before measurement.
 Both methods of accessing the measurement results should yield the same output, confirming that the measurement was successful and the results are consistent.
