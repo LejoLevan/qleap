@@ -1,8 +1,8 @@
 """
-qleap.py
+circuit.py
 
-This module provides the QLeap class, which serves as the main interface for constructing and running quantum circuits using the QLeap framework. 
-The QLeap class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or 
+This module provides the Circuit class, which serves as the main interface for constructing and running quantum circuits using the Circuit framework. 
+The Circuit class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or 
 by generating a trace of the program's execution.
 
 """
@@ -12,12 +12,12 @@ from .quantuminterface import QuantumInterface
 from .simresult import extract_counts
 from .runarguments import RunArguments
 
-class QLeap:
-    """QLeap is the main class for running quantum circuits.
+class Circuit:
+    """Circuit is the main class for running quantum circuits.
 
-    The QLeap class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or by generating a trace of the program's execution.
-    The QLeap class is designed to be used in conjunction with the Operation, QState, and Qubit classes, which are used to construct quantum circuits. 
-    When an Operation is created, it is added to the list of operations in the QLeap class. When a QState or Qubit is created, qubits are allocated for it using the private allocate method in the QLeap class.
+    The Circuit class collects operations, manages qubit allocation, and handles the execution of quantum programs, either through simulation or by generating a trace of the program's execution.
+    The Circuit class is designed to be used in conjunction with the Operation, QState, and Qubit classes, which are used to construct quantum circuits. 
+    When an Operation is created, it is added to the list of operations in the Circuit class. When a QState or Qubit is created, qubits are allocated for it using the private allocate method in the Circuit class.
     """
     
     _operation_count = 0
@@ -28,6 +28,7 @@ class QLeap:
     _results = None
 
     _measured = set()
+    
 
     @classmethod
     def _add_operation(cls, operation):
@@ -87,7 +88,7 @@ class QLeap:
 
     @classmethod
     def draw(cls):
-        """Draws the quantum circuit that has been constructed by the QLeap class.
+        """Draws the quantum circuit that has been constructed by the Circuit class.
 
         Returns
         -------
@@ -99,7 +100,7 @@ class QLeap:
 
     @classmethod
     def run(cls, args: RunArguments | None = None):
-        """Runs the quantum program that has been constructed by the QLeap class. 
+        """Runs the quantum program that has been constructed by the Circuit class. 
         This method simulates the quantum program and distributes results to the QState instances that were measured. 
         If the trace flag is set in the RunArguments, this method generates a trace of the quantum program instead of simulating it.
 
@@ -124,7 +125,7 @@ class QLeap:
 
     @classmethod
     def _run_sim(cls, args):
-        """Simulates the quantum program that has been constructed by the QLeap class and distributes results to the QState instances that were measured.
+        """Simulates the quantum program that has been constructed by the Circuit class and distributes results to the QState instances that were measured.
 
         Parameters
         ----------
@@ -166,7 +167,7 @@ class QLeap:
 
     @classmethod
     def _run_trace(cls, args):
-        """Generates a trace of the quantum program that has been constructed by the QLeap class. Note: This method requires that no measurements are made in the quantum program.
+        """Generates a trace of the quantum program that has been constructed by the Circuit class. Note: This method requires that no measurements are made in the quantum program.
 
         Parameters
         ----------
@@ -186,10 +187,11 @@ class QLeap:
     
     @classmethod
     def clear(cls):
-        """Clears the state of the QLeap class, including the list of operations, the quantum interface, and the results. This is used to reset the QLeap class after a simulation or trace has been generated. This method does not affect any QState or Qubit objects, just operations.
+        """Clears the state of the Circuit class, including the list of operations, the quantum interface, and the results. This is used to reset the Circuit class after a simulation or trace has been generated. This method does not affect any QState or Qubit objects, just operations.
         """
 
         cls._operation_count = 0
+        cls._qubit_count = 0
         cls._operations.clear()
         cls._measured.clear()
         cls._results = None
@@ -198,7 +200,7 @@ class QLeap:
 
     @classmethod
     def toQASM(cls):
-        """Converts the quantum program that has been constructed by the QLeap class to openQASM 3.0 code.
+        """Converts the quantum program that has been constructed by the Circuit class to openQASM 3.0 code.
 
         Returns
         -------

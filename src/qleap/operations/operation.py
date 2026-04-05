@@ -1,5 +1,5 @@
 from ..qstate import QState
-from ..qleap import QLeap
+from ..circuit import Circuit
 
 class Operation():
 
@@ -11,7 +11,7 @@ class Operation():
         """
 
         self._targets = args
-        QLeap._add_operation(self)
+        Circuit._add_operation(self)
 
     def _apply(self, qi):
         raise NotImplementedError

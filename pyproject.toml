@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "qleap"
-version = "0.0.1"
+version = "0.1.3"
 authors = [
     { name = "Jonathan Le", email = "jonathan.le@uconn.edu" },
     { name = "Avery Hogrefe", email = "avery.hogrefe@uconn.edu" }

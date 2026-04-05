@@ -4,7 +4,7 @@ qstate.py
 This module provides the QState class, which represents a multiple qubit quantum state in the QLeap framework.
 """
 
-from .qleap import QLeap
+from .circuit import Circuit
 
 class QState:
     """QState is a class that represents a multiple qubit quantum state in the QLeap framework.
@@ -14,7 +14,7 @@ class QState:
     def __init__(self, length: int):
         """Creates a QState instance with the specified number of qubits. 
         
-        This constructor allocates qubits for this QState instance using the private allocate method in the QLeap class.
+        This constructor allocates qubits for this QState instance using the private allocate method in the Circuit class.
 
         Parameters
         ----------
@@ -27,7 +27,7 @@ class QState:
         self._results = dict()
 
         if self._len > 0:
-            self._start = QLeap._allocate(length)
+            self._start = Circuit._allocate(length)
             self._end = self._start + length
 
     def __len__(self):

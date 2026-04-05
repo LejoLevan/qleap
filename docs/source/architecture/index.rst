@@ -13,10 +13,10 @@ UML Diagram
 
    UML diagram of the QLeap architecture, showing the main classes and their relationships.
 
-QLeap Class
------------
+Circuit Class
+-------------
 
-The QLeap class collects an instance of the QuantumInterface and RunArguments class while collecting
+The Circuit class collects an instance of the QuantumInterface and RunArguments class while collecting
 zero to many instances of the Operation class. This class uses these instances to construct and run a
 quantum circuit based on user instructions that are abstracted within these instances.
 
@@ -40,12 +40,12 @@ RunArguments Class
 ------------------
 The RunArguments class contains parameters that relate to the runtime of the Quantum Circuit. The
 user must either allow for a default set or configure custom selections. The class gets collected one to one
-into the QLeap class. As of now, the class is not implemented within the code base.
+into the Circuit class. As of now, the class is not implemented within the code base.
 
 Operation Class
 ---------------
 The Operation class is a parent class for any child quantum operations class such as measurement or the
-various quantum gates. Zero to many instances of this class are collected into the QLeap class. In addition,
+various quantum gates. Zero to many instances of this class are collected into the Circuit class. In addition,
 zero to many instances of this class aggregate one to many instances of the QState class and/or the Qubit
 class. All child classes are aware of the QuantumInterface class in order to define how they apply onto
 the constructed quantum circuit.
@@ -67,9 +67,9 @@ The Hadamard/CNOT/X classes is a child of the Gate and Operation class that pert
 
 QState Class
 ------------
-The QState class is the parent class of the Qubit class and refers to a collection of Qubits. One to many instances of the class are aggregated into zero to many instances of the Operation class and it's child classes. The class and it's child are aware of the QLeap class, which is needed upon initialization of any instance.
+The QState class is the parent class of the Qubit class and refers to a collection of Qubits. One to many instances of the class are aggregated into zero to many instances of the Operation class and it's child classes. The class and it's child are aware of the Circuit class, which is needed upon initialization of any instance.
 
-The class and it's child calls upon the \_allocate() method in QLeap in order to initialize the start and end fields, the length between those two indices corresponds to the \_len field defined by the user during instance creation. The QLeap class allocates based on it's \_qubit\_count field which tracks how many qubits have been created and the end index of the previous qubit allocation call. 
+The class and it's child calls upon the \_allocate() method in Circuit in order to initialize the start and end fields, the length between those two indices corresponds to the \_len field defined by the user during instance creation. The Circuit class allocates based on it's \_qubit\_count field which tracks how many qubits have been created and the end index of the previous qubit allocation call. 
 
 Qubit Class
 ------------
