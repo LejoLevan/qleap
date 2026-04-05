@@ -14,7 +14,7 @@ UML Diagram
    UML diagram of the QLeap architecture, showing the main classes and their relationships.
 
 Circuit Class
------------
+-------------
 
 The Circuit class collects an instance of the QuantumInterface and RunArguments class while collecting
 zero to many instances of the Operation class. This class uses these instances to construct and run a
