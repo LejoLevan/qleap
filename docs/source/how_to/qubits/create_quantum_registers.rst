@@ -6,7 +6,7 @@ or you can create individual `Qubit` instances.
 
 .. code-block:: python
 
-    from qleap import QLeap, QState, Qubit, Measurement
+    from qleap import Circuit, QState, Qubit, Measurement
 
     # Create a quantum register with 3 qubits
     qreg = QState(3)
@@ -20,10 +20,10 @@ or you can create individual `Qubit` instances.
     Measurement(qreg)
 
     # Run the quantum program
-    QLeap.run()
+    Circuit.run()
 
     # Print the measurement result
-    print(f'Measurement result: {QLeap.get_results()}')
+    print(f'Measurement result: {Circuit.get_results()}')
 
 In this code, we create a quantum register with 3 qubits using the `QState` class. This allows us to represent multiple qubits as a single entity, which can be useful for applying gates and measurements to multiple qubits at once.
 Alternatively, we can create individual `Qubit` instances for each qubit we want to use in our quantum program. This gives us more flexibility to manipulate each qubit separately.

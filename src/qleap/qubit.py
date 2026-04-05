@@ -14,7 +14,7 @@ class Qubit(QState):
     def __init__(self, qState=None, index=0):
         """Creates a Qubit instance. This constructor can be used in two ways:
         1. If a QState instance is provided, this constructor creates a Qubit instance that represents the qubit at the given index in the provided QState instance. This is used when a Qubit instance is created by indexing a QState instance.
-        2. If no QState instance is provided, this constructor creates a new Qubit instance that allocates a new qubit using the private allocate method in the QLeap class. This is used when a Qubit instance is created independently of a QState instance.
+        2. If no QState instance is provided, this constructor creates a new Qubit instance that allocates a new qubit using the private allocate method in the Circuit class. This is used when a Qubit instance is created independently of a QState instance.
 
         Parameters
         ----------

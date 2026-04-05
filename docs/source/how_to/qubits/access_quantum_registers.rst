@@ -13,7 +13,7 @@ Then both `QState` and `Qubit` objects can return length using the `len()` funct
 
 .. code-block:: python
 
-    from qleap import QLeap, QState, Qubit, Hadamard, Measurement
+    from qleap import Circuit, QState, Qubit, Hadamard, Measurement
 
     # Create a quantum register with 3 qubits
     qreg = QState(3)
@@ -32,10 +32,10 @@ Then both `QState` and `Qubit` objects can return length using the `len()` funct
     Measurement(qreg)
 
     # Run the quantum program
-    QLeap.run()
+    Circuit.run()
 
     # Print the measurement result
-    print(f'Measurement result: {QLeap.get_results()}')
+    print(f'Measurement result: {Circuit.get_results()}')
 
 In this code, we first create a quantum register with 3 qubits using the `QState` class. 
 We then access the first qubit using indexing and store it in the variable `q1`. We also access a range of qubits (the last two) using slicing and store them in the variable `q_slice`.
