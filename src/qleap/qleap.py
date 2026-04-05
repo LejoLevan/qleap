@@ -106,7 +106,7 @@ class QLeap:
         Parameters
         ----------
         args : RunArguments, optional
-            The arguments for running the quantum program, by default None
+            The arguments for running the quantum program, by default None.
 
         Returns
         -------
@@ -159,7 +159,8 @@ class QLeap:
                 qs._add_result(count, extracted_counts[count])
 
         # filter out unmeasured qubits
-        cls._results.counts = extract_counts(counts, kept_counts)
+        if len(cls._measured) > 0:
+            cls._results.counts = extract_counts(counts, kept_counts)
 
         return cls._results
 
@@ -185,17 +186,27 @@ class QLeap:
     
     @classmethod
     def clear(cls):
-        """Clears the state of the QLeap class, including the list of operations, the quantum interface, and the results. This is used to reset the QLeap class after a simulation or trace has been generated.
-
-        Raises
-        ------
-        NotImplementedError
-            This method is not yet implemented.
+        """Clears the state of the QLeap class, including the list of operations, the quantum interface, and the results. This is used to reset the QLeap class after a simulation or trace has been generated. This method does not affect any QState or Qubit objects, just operations.
         """
-        raise NotImplementedError()
 
         cls._operation_count = 0
-        cls._qubit_count = 0
         cls._operations.clear()
         cls._measured.clear()
         cls._results = None
+
+
+
+    @classmethod
+    def toQASM(cls):
+        """Converts the quantum program that has been constructed by the QLeap class to openQASM 3.0 code.
+
+        Returns
+        -------
+        string
+            The openQASM 3.0 code.
+        """
+        cls._qi.create_circuit(numQubits=cls._qubit_count)
+        for op in cls._operations:
+            op._apply(cls._qi)
+
+        return cls._qi.toQASM()

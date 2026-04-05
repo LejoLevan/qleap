@@ -33,7 +33,7 @@ class Cnot(Gate):
         self._control = control
 
         if len(control) > 1:
-            raise ValueError("CNOT control should be a single qubit")
+            raise ValueError("Cnot control should be a single qubit")
         
     @override
     def _apply(self, qi):
