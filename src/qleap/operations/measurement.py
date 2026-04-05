@@ -9,7 +9,7 @@ from typing import override
 
 from .operation import Operation
 from ..qstate import QState
-from ..qleap import QLeap
+from ..circuit import Circuit
 
 class Measurement(Operation):
     """Measurement is a class that represents a measurement operation in the QLeap framework.
@@ -32,7 +32,7 @@ class Measurement(Operation):
     def _apply(self, qi):
         
         for target in self._targets:
-            QLeap.record_measurement(target)
+            Circuit._record_measurement(target)
             qi.measure(
                 start=target._start, 
                 end=target._end
