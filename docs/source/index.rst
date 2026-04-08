@@ -18,21 +18,12 @@ The code can be executed in two ways: simulating the result locally, or exportin
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Getting Started
-
-   installation
-   quickstart
-
-.. toctree::
    :maxdepth: 2
-   :caption: Tutorials
+   :caption: Contents:
 
+   start/index
    tutorials/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
+   how_to/index
    api/index
+   architecture/index
 

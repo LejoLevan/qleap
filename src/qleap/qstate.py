@@ -1,12 +1,25 @@
-from .qleap import Qleap
+""" 
+qstate.py
+
+This module provides the QState class, which represents a multiple qubit quantum state in the QLeap framework.
+"""
+
+from .circuit import Circuit
 
 class QState:
+    """QState is a class that represents a multiple qubit quantum state in the QLeap framework.
+    """
+
 
     def __init__(self, length: int):
-        """
-        Creates a new QState object.
+        """Creates a QState instance with the specified number of qubits. 
+        
+        This constructor allocates qubits for this QState instance using the private allocate method in the Circuit class.
 
-        length: int, how many qubits are in this quantum state.
+        Parameters
+        ----------
+        length : int
+            The number of qubits in this quantum state.
         """
 
         self._len = length
@@ -14,20 +27,33 @@ class QState:
         self._results = dict()
 
         if self._len > 0:
-            self._start = Qleap._allocate(length)
+            self._start = Circuit._allocate(length)
             self._end = self._start + length
 
     def __len__(self):
-        """
-        Returns the number of qubits in this quantum state.
+        """Returns the number of qubits in this quantum state.
+
+        Returns
+        -------
+        int
+            The number of qubits in this quantum state.
         """
         return self._len
     
     def __getitem__(self, index):
+        """Returns either a QState or Qubit object for the given index.
+
+        Parameters
+        ----------
+        index : int or slice
+            If the index is an int, the index of the qubit to return. If the index is a slice, the slice of qubits to return as a new QState object.
+
+        Returns
+        -------
+        Qubit or QState
+            If the index is an int, a Qubit object representing the qubit at the given index is returned. If the index is a slice, a new QState object representing the slice of qubits specified by the index is returned.
         """
-        Returns a Qubit object for the given index.
-        If a slice object is passed, returns a QState object instead.
-        """
+
         
         if isinstance(index, slice):
 
@@ -45,12 +71,20 @@ class QState:
             if index >= len(self):
                 raise IndexError(f"Index {int} is out of bounds for QState of length {len(self)}")
             
-            from .Qubit import Qubit
+            from .qubit import Qubit
             return Qubit(self, index)
     
     def _add_result(self, outcome, count):
-        """
-        Adds the given outcome with the specified number of counts to the results dict
+        """Adds a measurement result to this QState instance. 
+        
+        This is used by the QState class when a QState instance is measured to keep track of the results of measuring this QState instance.
+
+        Parameters
+        ----------
+        outcome : int
+            The measurement outcome to add
+        count : int
+            The number of times this outcome occurred
         """
 
         if outcome not in self._results:
@@ -60,15 +94,11 @@ class QState:
 
 
     def get_results(self):
-        """
-        Gets the results of measuring this quantum state
+        """Gets the results of measuring this QState instance. 
+        
+        Returns
+        -------
+        dict[int, int]
+            A dictionary mapping measurement outcomes to their frequencies.
         """
         return self._results
-
-
-    def show(self):
-        """
-        Shows a representation of this QState
-        """
-
-        #TODO: make a nice representation of this QState

@@ -1,4 +1,7 @@
-"""Hadamard Gate
+""" 
+hadamard.py
+
+This module provides the Hadamard class, which represents the Hadamard gate operation in the QLeap framework.
 """
 
 from .gate import Gate
@@ -6,14 +9,18 @@ from ...qstate import QState
 from typing import override
 
 class Hadamard(Gate):
-    """The Hadamard gate is a single-qubit operation that creates superposition by changing into the Hadamard basis. 
-    """
-    def __init__(self, *args: QState):
-        """
-        Initializes the Hadamard gate.
+    """Hadamard is a class that represents the Hadamard gate operation in the QLeap framework. 
 
-        Args:
-            *args (QState): The qubit(s) to which the gate is applied.
+    The Hadamard gate is a single-qubit gate that creates a superposition of the :math:`|0\\rangle` and :math:`|1\\rangle` states. It transforms the :math:`|0\\rangle` state into :math:`(|0\\rangle + |1\\rangle)/\\sqrt{2}` or known as :math:`|+\\rangle` and the :math:`|1\\rangle` state into :math:`(|0\\rangle - |1\\rangle)/\\sqrt{2}` or known as :math:`|-\\rangle`.
+    """
+    
+    def __init__(self, *args: QState):
+        """Creates a Hadamard instance that represents a Hadamard gate operation on the given QState instances.
+
+        Parameters
+        ----------
+        *args : QState
+            The QState instances to be acted on by this Hadamard gate operation.
         """
         super().__init__(args)
     

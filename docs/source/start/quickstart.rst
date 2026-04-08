@@ -6,10 +6,7 @@ The results of the measurement are printed to the console.
 
 .. code-block:: python
 
-    from qleap import Qleap, Qubit, Hadamard, Measurement
-
-    # Create a Qleap instance
-    qleap = Qleap()
+    from qleap import Circuit, Qubit, Hadamard, Measurement
 
     # Create a qubit
     q = Qubit()
@@ -21,9 +18,9 @@ The results of the measurement are printed to the console.
     Measurement(q)
 
     # Run the quantum program
-    qleap.run()
+    Circuit.run()
 
     # Print the measurement result
-    print(f'Measurement result: {qleap.get_results()}')
+    print(f'Measurement result: {Circuit.get_results()}')
 
-For a more detailed explanation of superposition and the Hadamard gate, see the :doc:'tutorials/basic_superposition' tutorial.
+For a more detailed explanation of superposition and the Hadamard gate, see the :doc:`../tutorials/basic_superposition` tutorial.

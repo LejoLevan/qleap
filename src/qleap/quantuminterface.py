@@ -1,7 +1,9 @@
-from qiskit import QuantumCircuit
+from qiskit import QuantumCircuit, transpile
+from qiskit.circuit.library import QFT
 from qiskit.quantum_info import DensityMatrix, Statevector
 from qiskit.exceptions import QiskitError
 from qiskit_aer import AerSimulator
+from qiskit.qasm3 import dumps
 from .simresult import SimResult
 
 class QuantumInterface:
@@ -20,6 +22,21 @@ class QuantumInterface:
 
     def x(self, start, end):
         self._qc.x(range(start, end)) # type: ignore
+
+    def z(self, start, end):
+        self._qc.z(range(start, end))
+
+    def QFT(self, start, end):
+        self._qc.compose(QFT(end - start), qubits=range(start, end), inplace=True)
+
+    def invQFT(self, start, end):
+        self._qc.compose(QFT(end - start, inverse=True), qubits=range(start, end), inplace=True)
+
+    def swap(self, first, second):
+        self._qc.swap(first, second)
+
+    def cswap(self, control, first, second):
+        self._qc.cswap(control, first, second)
     
     def measure(self, start, end):
         self._qc.measure(range(start, end), range(start, end)) # type: ignore
@@ -33,8 +50,10 @@ class QuantumInterface:
 
         Output: counts of the results
         """
+        sim = AerSimulator()
+        qc_transpiled = transpile(self._qc, sim)
 
-        result = AerSimulator().run(self._qc, shots=shots).result()
+        result = AerSimulator().run(qc_transpiled, shots=shots).result()
         qppResult = SimResult()
 
         try:
@@ -53,7 +72,7 @@ class QuantumInterface:
     
     def evolve_density_matrix(self, dmat):
         """
-        Note: Requires no measurements
+        Evolves density matrix unitarily (no measurements are allowed here)
         """
 
         rho = DensityMatrix(dmat)
@@ -61,7 +80,7 @@ class QuantumInterface:
     
     def evolve_vector(self, vec):
         """
-        No measurements please
+        Evolves statevector unitarily (no measurements are allowed here)
         """
 
         statevec = Statevector(vec)
@@ -75,3 +94,11 @@ class QuantumInterface:
         statevec = Statevector(vec)
         outcome, result_state = statevec.measure()
         return outcome, result_state.data
+
+    def toQASM(self):
+        """
+        Generates OPENQASM 3.0 code
+        """
+
+        qasm_code = dumps(self._qc)
+        return qasm_code
