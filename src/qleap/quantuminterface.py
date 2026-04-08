@@ -19,6 +19,9 @@ class QuantumInterface:
     
     def cnot(self, control, target):
         self._qc.cx(control_qubit=control, target_qubit=target) # type: ignore
+    
+    def toffoli(self, control1, control2, target):
+        self._qc.ccx(control1, control2, target) # type: ignore
 
     def x(self, start, end):
         self._qc.x(range(start, end)) # type: ignore
