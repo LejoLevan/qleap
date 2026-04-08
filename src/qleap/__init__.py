@@ -1,4 +1,4 @@
-from .operations import Cnot, Toffoli, Hadamard, X, Measurement, Z, Qft, Swap
+from .operations import Cnot, Toffoli, Hadamard, X, Measurement, Z, Qft, Swap, Barrier
 from .circuit import Circuit
 from .qstate import QState
 from .qubit import Qubit
@@ -13,6 +13,7 @@ __all__ = [
     "Qft",
     "Swap",
     "Measurement",
+    "Barrier",
 
     "Circuit",
     "QState",
