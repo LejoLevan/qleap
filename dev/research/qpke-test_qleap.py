@@ -12,7 +12,7 @@
 
 # "runNoiseTest" and "runExperiment" are the main functions.
 
-from qiskit import QuantumCircuit
+from qleap import Cnot, Toffoli, Swap, X, Hadamard, Measurement, Qubit, QState, Barrier, Circuit, RunArguments
 from qiskit.visualization import plot_histogram
 
 import random
@@ -42,31 +42,33 @@ def chooseDistinctRandomInts(maxval):
 
 # Some helper functions
 def applyX(base, wire):
-    global circuit
-    circuit.x(base+wire)
+    global qstate
+    X(qstate[base+wire])
     #print("Apply X to ", base+wire)
 
 def applyH(base, wire):
-    global circuit
-    circuit.h(base+wire)
+    global qstate
+    Hadamard(qstate[base+wire])
 
 def applyT(base, control1, control2, target):
-    global circuit
-    circuit.ccx(control1, control2, target)
+    global qstate
+    Toffoli(qstate[control1], qstate[control2], qstate[target])
 
 def applyCNOT(base, control, target):
-    global circuit
-    circuit.cx(base+control, base+target)
+    global qstate
+    Cnot(qstate[base+control], qstate[base+target])
     #print("Apply CNOT with c = ", base+control, "; t = ", base+target)
     
 def applySwap(base, i, j):
-    global circuit
+    global qstate
     if i == j:
         return
-    circuit.cx(base+i, base+j)
-    circuit.cx(base+j, base+i)
-    circuit.cx(base+i, base+j)
+    Cnot(qstate[base+i], qstate[base+j])
+    Cnot(qstate[base+j], qstate[base+i])
+    Cnot(qstate[base+i], qstate[base+j])
+
     #circuit.swap(base+i, base+j)
+    #Swap(qstate[base+i], qstate[base+j])
     #print("Apply SWAP between ", base+i, " and ", base+j)
 
 def interpretResultNew(blockNum, numWires, dataArray, delta):
@@ -152,12 +154,12 @@ def PRF(key, input):
 
     return x
 def buildUF(base, numWires):
-    global circuit
-    circuit.cx(base+2, base+(numWires))
+    global qstate
+    Cnot(qstate[base+2], qstate[base+(numWires)])
     if(enckey[1]):
-        circuit.cx(base+1, base+(numWires))
+        Cnot(qstate[base+1], qstate[base+(numWires)])
     if (enckey[0]):
-        circuit.x(base+(numWires))
+        X(qstate[base+(numWires)])
 
 
 # New code for each delta; we only have up to n=3 qubits:
@@ -236,37 +238,38 @@ def buildPermutations():
 # numWires is the security parameter
 # numBlocks is how many groups of key to create
 # total qubits required = numBlocks*(numWires+1)
-circuit = 0
+qstate = 0
 totalQubits = 0
 # ijChoices = []
 deltaChoices = []
 
 def setupCircuit(numWires, numBlocks):
     global totalQubits
-    global circuit
+    global qstate
     totalQubits = numBlocks*(numWires+1)
-    circuit = QuantumCircuit(numBlocks*(numWires+1), numBlocks*numWires)
+    qstate = QState(numBlocks*(numWires+1))
 
 def createPubKey(numWires, numBlocks):
-    global circuit
+    global qstate
     # First setup Aux wires to have |1>:
 
     for i in range(numBlocks):
-        applyX(i*(numWires+1), numWires)
+        X(qstate[(i*(numWires+1))+numWires])
 
     ## apply H everywhere:
     for i in range(numBlocks*(numWires+1)):
-        circuit.h(i)
+        Hadamard(qstate[i])
 
-    circuit.barrier(range(totalQubits))
+    Barrier(qstate)
+    
     ## apply UF to each block:
     for i in range(numBlocks):
         buildUF(i*(numWires+1), numWires)
 
-    circuit.barrier(range(totalQubits))
+    Barrier(qstate)
 
 def EncryptCircuit(numWires, numBlocks):
-    global circuit
+    global qstate
     global deltaChoices
     deltaChoices = []
     for b in range(numBlocks):
@@ -280,16 +283,16 @@ def EncryptCircuit(numWires, numBlocks):
         #buildIJSwap(i, j, numWires, b)
         deltaChoices.append( delta )  ## save for later - not all will be used due to measurement failure
 
-    circuit.barrier(range(totalQubits))
+    Barrier(qstate)
 
     for b in range(numBlocks):
-        circuit.h(b*(numWires+1))
+        Hadamard(qstate[b*(numWires+1)])
 
-    circuit.barrier(range(totalQubits))
+    Barrier(qstate)
     ## now measure:
     for b in range(numBlocks):
         for w in range(numWires):
-            circuit.measure(b*(numWires+1) + w, b*numWires + w)
+            Measurement(qstate[b*(numWires+1) + w])
 
 def Decrypt(ct_ij, ct_pad, key):
     pad = []
@@ -325,7 +328,8 @@ def SetupCipherText(message):
     global prePad
     global messageArray
     global prePadSize
-    global circuit
+    #global circuit
+    global qstate
     global deltaChoices
 
     ctIJ = []
@@ -342,22 +346,22 @@ def CreateNextCipherText(numWires, numBlocks):
     global prePad
     global messageArray
     global prePadSize
-    global circuit
+    #global circuit
+    global qstate
     global deltaChoices
 
     buildPermutations()
 
     ## run the job:
-    quantinuum_api_val_backend = provider.get_backend(cpuname)
+    args = RunArguments(shots=1)
+    result = Circuit.run(args)
+    Circuit.clear()
+    counts = result.counts
+    print("counts = ", counts)
 
-    job = quantinuum_api_val_backend.run(circuit, shots=1)
-    print("Job id:", job.id())
+    plot_histogram(counts, title="Result")
 
-    result = job.result().results[0].data.counts
-
-    plot_histogram(job.result().get_counts(circuit), title="Result")
-
-    result_arr = max(result, key= lambda key: result[key])[::-1]
+    result_arr = max(counts, key= lambda key: counts[key])[::-1]
 
     print("MEASUREMENT RESULT = ", result_arr)
 
@@ -392,7 +396,8 @@ def FinalizeCiphertext():
     global prePad
     global messageArray
     global prePadSize
-    global circuit
+    #global circuit
+    global qstate
     f = hashFct(prePad, len(messageArray))
 
     for i in range(len(messageArray)):
@@ -404,7 +409,8 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
     global prePad
     global messageArray
     global prePadSize
-    global circuit
+    #global circuit
+    global qstate
     #global ijChoices
     global deltaChoices
     SetupCipherText(message)
@@ -421,7 +427,7 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
 
         print(deltaChoices)
 
-        print(circuit.draw(fold=300))
+        #print(circuit.draw(fold=300))
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
@@ -444,21 +450,22 @@ def runNoiseTest_Circuit(numWires, numBlocks):
     global prePad
     global messageArray
     global prePadSize
-    global circuit
+    #global circuit
+    global qstate
     #global ijChoices
     global deltaChoices
 
     buildPermutations()
 
     ## run the job:
-    quantinuum_api_val_backend = provider.get_backend(cpuname)
+    args = RunArguments(shots=1)
+    result = Circuit.run(args)
+    Circuit.clear()
+    counts = result.counts
 
-    job = quantinuum_api_val_backend.run(circuit, shots=1)
-    print("Job id:", job.id())
+    plot_histogram(counts, title="Result")
 
-    result = job.result().results[0].data.counts
-
-    result_arr = max(result, key= lambda key: result[key])[::-1]
+    result_arr = max(counts, key= lambda key: counts[key])[::-1]
 
     ## now interpret the result block-by-block:
     for b in range(numBlocks):
