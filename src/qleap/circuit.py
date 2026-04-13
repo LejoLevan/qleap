@@ -114,14 +114,17 @@ class Circuit:
         simResult or Trace
             The results of the simulation as an instance of the SimResult class, or a trace of the quantum program as an instance of the Trace class if the trace flag is set in the RunArguments.
         """
+        result = None
 
         if args is None:
             args = RunArguments()
 
         if args.trace:
-            return cls._run_trace(args)
+            result = cls._run_trace(args)
+        result = cls._run_sim(args)
         
-        return cls._run_sim(args)
+        cls.clear()
+        return result
 
     @classmethod
     def _run_sim(cls, args):
