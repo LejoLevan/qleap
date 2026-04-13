@@ -143,7 +143,7 @@ class Circuit:
         
         # Wipe the circuit if needed
         if args.clear:
-            cls._clear()
+            cls.clear()
 
         return result
 
