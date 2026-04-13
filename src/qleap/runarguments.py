@@ -9,7 +9,7 @@ class RunArguments:
     RunArguments is a class that represents the arguments for running a quantum program in the QLeap framework. 
     """
 
-    def __init__(self, shots=2**10, trace=False):
+    def __init__(self, shots=2**10, trace=False, clear=True):
         """Creates a RunArguments instance with the specified arguments for running a quantum program.
 
         Parameters
@@ -21,3 +21,4 @@ class RunArguments:
         """
         self.shots = shots
         self.trace = trace
+        self.clear = clear

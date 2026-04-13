@@ -29,10 +29,11 @@ class Circuit:
 
     _measured = set()
     
+    _built = False
 
     @classmethod
     def _add_operation(cls, operation):
-        """Private method to add an operation to the list of operations. This is used by the Operation class when an operation is created.
+        """Private method to add an operation to the list of operations. This is used by the Operation class when an operation is created. Sets _built flag to False to notify that the circuit needs to be rebuilt.
 
         Parameters
         ----------
@@ -41,6 +42,7 @@ class Circuit:
         """
 
         cls._operations.append(operation)
+        cls._built = False
 
     @classmethod
     def _allocate(cls, count: int) -> int:
@@ -87,6 +89,17 @@ class Circuit:
         return cls._results
 
     @classmethod
+    def _build(cls):
+        """Builds the quantum circuit that has been constructed through creating qstates and applying operations to them. Sets the _built flag to true to record that the circuit is built.
+        """
+        cls._qi.create_circuit(numQubits=cls._qubit_count)
+
+        for op in cls._operations:
+            op._apply(cls._qi)
+
+        cls._built = True
+
+    @classmethod
     def draw(cls):
         """Draws the quantum circuit that has been constructed by the Circuit class.
 
@@ -95,6 +108,9 @@ class Circuit:
         string
             The string representation of the quantum circuit.
         """
+
+        if not cls._built:
+            cls._build()
 
         return cls._qi.draw()
 
@@ -114,14 +130,22 @@ class Circuit:
         simResult or Trace
             The results of the simulation as an instance of the SimResult class, or a trace of the quantum program as an instance of the Trace class if the trace flag is set in the RunArguments.
         """
+        result = None
 
         if args is None:
             args = RunArguments()
 
+        result = None
         if args.trace:
-            return cls._run_trace(args)
+            result = cls._run_trace(args)
+        else:
+            result = cls._run_sim(args)
         
-        return cls._run_sim(args)
+        # Wipe the circuit if needed
+        if args.clear:
+            cls.clear()
+
+        return result
 
     @classmethod
     def _run_sim(cls, args):
@@ -138,10 +162,8 @@ class Circuit:
             The results of the simulation as an instance of the SimResult class.
         """
 
-        cls._qi.create_circuit(numQubits=cls._qubit_count)
-        
-        for op in cls._operations:
-            op._apply(cls._qi)
+        if not cls._built:
+            cls._build()
 
         cls._results = cls._qi.simulate(args.shots)
         counts = cls._results.counts
@@ -194,9 +216,7 @@ class Circuit:
         cls._qubit_count = 0
         cls._operations.clear()
         cls._measured.clear()
-        cls._results = None
-
-
+        cls._built = False
 
     @classmethod
     def toQASM(cls):
@@ -207,8 +227,7 @@ class Circuit:
         string
             The openQASM 3.0 code.
         """
-        cls._qi.create_circuit(numQubits=cls._qubit_count)
-        for op in cls._operations:
-            op._apply(cls._qi)
+        if not cls._built:
+            cls._build()
 
         return cls._qi.toQASM()

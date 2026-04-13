@@ -19,6 +19,9 @@ class QuantumInterface:
     
     def cnot(self, control, target):
         self._qc.cx(control_qubit=control, target_qubit=target) # type: ignore
+    
+    def toffoli(self, control1, control2, target):
+        self._qc.ccx(control_qubit1=control1, control_qubit2=control2, target_qubit=target) # type: ignore
 
     def x(self, start, end):
         self._qc.x(range(start, end)) # type: ignore
@@ -40,9 +43,16 @@ class QuantumInterface:
     
     def measure(self, start, end):
         self._qc.measure(range(start, end), range(start, end)) # type: ignore
+    
+    def barrier(self, start, end):
+        self._qc.barrier(range(start, end)) # type: ignore
 
     def draw(self):
-        print(self._qc)
+        if self._qc is not None:
+            print(self._qc)
+        else:
+            print("No quantum circuit created yet.")
+
 
     def simulate(self, shots):
         """
