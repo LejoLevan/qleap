@@ -12,25 +12,12 @@
 
 # "runNoiseTest" and "runExperiment" are the main functions.
 
-from azure.quantum import Workspace
-workspace = Workspace (
-   resource_id = "",
-   location = "eastus"
-)
-
-from azure.quantum import Workspace
-from azure.quantum.qiskit import AzureQuantumProvider
-provider = AzureQuantumProvider(workspace)
-
-#quantinuum_api_val_backend = provider.get_backend("quantinuum.sim.h1-1e")
-#quantinuum_api_val_backend = provider.get_backend("quantinuum.qpu.h1-1")
-
-cpuname = "quantinuum.sim.h1-1e" ## or use qpu
-
 from qiskit import QuantumCircuit
 from qiskit.visualization import plot_histogram
+from qiskit_aer import AerSimulator
 
 import random
+random.seed(0)
 
 def getNthBit(i, n):
     for k in range(n):
@@ -165,7 +152,7 @@ def PRF(key, input):
     if key[0]:
         x = x ^ 1
 
-    return x
+    return 0
 def buildUF(base, numWires):
     global circuit
     circuit.cx(base+2, base+(numWires))
@@ -363,12 +350,11 @@ def CreateNextCipherText(numWires, numBlocks):
     buildPermutations()
 
     ## run the job:
-    quantinuum_api_val_backend = provider.get_backend(cpuname)
+    simulator = AerSimulator()
 
-    job = quantinuum_api_val_backend.run(circuit, shots=1)
-    print("Job id:", job.id())
+    job = simulator.run(circuit, shots=1)
 
-    result = job.result().results[0].data.counts
+    result = job.result().get_counts()
 
     plot_histogram(job.result().get_counts(circuit), title="Result")
 
@@ -422,6 +408,7 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
     global circuit
     #global ijChoices
     global deltaChoices
+    global i
     SetupCipherText(message)
 
     print(messageArray)
@@ -436,7 +423,9 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
 
         print(deltaChoices)
 
-        print(circuit.draw(fold=300))
+        print(circuit.draw())
+        i += 1
+        print(i)
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
@@ -466,12 +455,11 @@ def runNoiseTest_Circuit(numWires, numBlocks):
     buildPermutations()
 
     ## run the job:
-    quantinuum_api_val_backend = provider.get_backend(cpuname)
+    simulator = AerSimulator()
 
-    job = quantinuum_api_val_backend.run(circuit, shots=1)
-    print("Job id:", job.id())
-
-    result = job.result().results[0].data.counts
+    job = simulator.run(circuit, shots=1)
+    
+    result = job.result().get_counts()
 
     result_arr = max(result, key= lambda key: result[key])[::-1]
 
@@ -536,4 +524,5 @@ def runNoiseTest(numRounds):
 
         print("Total Error = ", float(totalError)/float(totalPads))
 
+i = 0
 CT = runExperiment(3, 1, "hi", [1,0,0])

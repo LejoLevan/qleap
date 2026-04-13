@@ -152,7 +152,7 @@ def PRF(key, input):
     if key[0]:
         x = x ^ 1
 
-    return x
+    return 0
 def buildUF(base, numWires):
     global qstate
     Cnot(qstate[base+2], qstate[base+(numWires)])
@@ -355,6 +355,7 @@ def CreateNextCipherText(numWires, numBlocks):
     ## run the job:
     args = RunArguments(shots=1)
     result = Circuit.run(args)
+    Circuit.draw()
     Circuit.clear()
     counts = result.counts
     print("counts = ", counts)
@@ -413,6 +414,7 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
     global qstate
     #global ijChoices
     global deltaChoices
+    global i
     SetupCipherText(message)
 
     print(messageArray)
@@ -426,8 +428,6 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
         EncryptCircuit(securityParameter, numPubKeysPerTrial)
 
         print(deltaChoices)
-
-        #print(circuit.draw(fold=300))
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
@@ -528,4 +528,6 @@ def runNoiseTest(numRounds):
 
         print("Total Error = ", float(totalError)/float(totalPads))
 
+i=0
+random.seed(0)
 CT = runExperiment(3, 1, "hi", [1,0,0])
