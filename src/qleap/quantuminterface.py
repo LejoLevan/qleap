@@ -48,7 +48,11 @@ class QuantumInterface:
         self._qc.barrier(range(start, end)) # type: ignore
 
     def draw(self):
-        print(self._qc)
+        if self._qc is not None:
+            print(self._qc)
+        else:
+            print("No quantum circuit created yet.")
+
 
     def simulate(self, shots):
         """
