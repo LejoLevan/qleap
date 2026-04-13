@@ -356,7 +356,7 @@ def CreateNextCipherText(numWires, numBlocks):
     args = RunArguments(shots=1)
     result = Circuit.run(args)
     Circuit.draw()
-    Circuit.clear()
+    #Circuit.clear()
     counts = result.counts
     print("counts = ", counts)
 
@@ -460,7 +460,7 @@ def runNoiseTest_Circuit(numWires, numBlocks):
     ## run the job:
     args = RunArguments(shots=1)
     result = Circuit.run(args)
-    Circuit.clear()
+    #Circuit.clear()
     counts = result.counts
 
     plot_histogram(counts, title="Result")
