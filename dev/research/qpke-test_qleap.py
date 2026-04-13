@@ -355,7 +355,7 @@ def CreateNextCipherText(numWires, numBlocks):
     ## run the job:
     args = RunArguments(shots=1)
     result = Circuit.run(args)
-    Circuit.draw()
+    #Circuit.draw()
     #Circuit.clear()
     counts = result.counts
     print("counts = ", counts)
@@ -428,6 +428,10 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
         EncryptCircuit(securityParameter, numPubKeysPerTrial)
 
         print(deltaChoices)
+
+        Circuit.draw()
+        i += 1
+        print(i)
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
