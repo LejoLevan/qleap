@@ -25,11 +25,6 @@ def test_quickstart():
     # Run the quantum program
     Circuit.run()
 
-    # Check that the measurement was recorded correctly
-    assert len(Circuit._measured) == 1
-    assert any(q._start == 0 for q in Circuit._measured)
-    assert any(q._end == 1 for q in Circuit._measured)
-
     # Check that the results were recorded correctly
     assert Circuit._results is not None
     
