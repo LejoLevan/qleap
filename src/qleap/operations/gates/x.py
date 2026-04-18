@@ -6,7 +6,6 @@ This module provides the X class, which represents the X gate operation in the Q
 
 from .gate import Gate
 from ...qstate import QState
-from typing import override
 
 class X(Gate):
     """X is a class that represents the X gate operation in the QLeap framework.
@@ -24,7 +23,6 @@ class X(Gate):
         """
         super().__init__(args)
     
-    @override
     def _apply(self, qi):
 
         for target in self._targets:
@@ -33,6 +31,5 @@ class X(Gate):
                 end=target._end
             )
 
-    @override
     def _apply_inverse(self, qi):
         self._apply(qi)
