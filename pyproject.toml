@@ -18,3 +18,8 @@ dependencies = [
     "qiskit>=1.0,<2.0",
     "qiskit-aer>=0.13,<1.0"
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/LejoLevan/qleap"
+"Documentation" = "https://lejolevan.github.io/qleap/"
+"Issues" = "https://github.com/LejoLevan/qleap/issues"
