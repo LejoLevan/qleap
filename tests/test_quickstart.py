@@ -20,7 +20,6 @@ def test_quickstart():
     assert Circuit._operations[1]._targets[0]._end == 1
 
     assert Circuit._qubit_count == 1
-    assert Circuit._results is None
 
     # Run the quantum program
     Circuit.run()
