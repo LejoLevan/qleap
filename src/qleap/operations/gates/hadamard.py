@@ -6,7 +6,6 @@ This module provides the Hadamard class, which represents the Hadamard gate oper
 
 from .gate import Gate
 from ...qstate import QState
-from typing import override
 
 class Hadamard(Gate):
     """Hadamard is a class that represents the Hadamard gate operation in the QLeap framework. 
@@ -23,8 +22,7 @@ class Hadamard(Gate):
             The QState instances to be acted on by this Hadamard gate operation.
         """
         super().__init__(args)
-    
-    @override
+
     def _apply(self, qi):
         """overrides the _apply method of the Gate class to apply the Hadamard gate to the target qubits.
 
@@ -37,8 +35,7 @@ class Hadamard(Gate):
                 start=target._start, 
                 end=target._end
             )
-    
-    @override
+
     def _apply_inverse(self, qi):
         """overrides the _apply_inverse method of the Gate class to apply the inverse of the Hadamard gate, which is the same as the Hadamard gate itself.
 

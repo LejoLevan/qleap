@@ -6,7 +6,6 @@ This module provides the Cnot class, which represents the CNOT gate operation in
 
 from .gate import Gate
 from ...qstate import QState
-from typing import override
 
 class Cnot(Gate):
     """Cnot is a class that represents the CNOT gate operation in the QLeap framework.
@@ -35,11 +34,9 @@ class Cnot(Gate):
         if len(control) > 1:
             raise ValueError("Cnot control should be a single qubit")
         
-    @override
     def _apply(self, qi):
         for target in self._targets:
             qi.cnot(self._control._start, target._start) # type: ignore
 
-    @override
     def _apply_inverse(self, qi):
         self._apply(qi)

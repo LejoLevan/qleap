@@ -5,7 +5,6 @@ This module provides the swap class, which represents the swap gate operation in
 """
 
 from .gate import Gate
-from typing import override
 
 class Swap(Gate):
     """Swap is a class that represents the Swap gate operation in the QLeap framework.
@@ -39,7 +38,6 @@ class Swap(Gate):
         if control is not None and len(control) > 1:
             raise ValueError("Control should be a single qubit")
 
-    @override
     def _apply(self, qi):
 
         if self.control is None:
@@ -47,6 +45,5 @@ class Swap(Gate):
         else:
             qi.cswap(self.control._start, self._targets[0]._start, self._targets[1]._start)
 
-    @override
     def _apply_inverse(self, qi):
         self._apply(qi)
