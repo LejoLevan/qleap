@@ -5,7 +5,6 @@ This module provides the QFT class, which represents the QFT gate operation in t
 """
 
 from .gate import Gate
-from typing import override
 
 class Qft(Gate):
     """Qft is a class that represents the QFT gate operation in the QLeap framework.
@@ -24,7 +23,6 @@ class Qft(Gate):
         super().__init__(target)
         self._invert = invert
     
-    @override
     def _apply(self, qi):
 
         if self._invert:
@@ -38,7 +36,6 @@ class Qft(Gate):
                 end=self._targets._end
             )
 
-    @override
     def _apply_inverse(self, qi):
 
         if self._invert:

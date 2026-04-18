@@ -4,9 +4,6 @@ measurement.py
 This module provides the Measurement class, which represents a measurement operation in the QLeap framework.
 """
 
-from scipy.stats import rv_discrete
-from typing import override
-
 from .operation import Operation
 from ..qstate import QState
 from ..circuit import Circuit
@@ -28,7 +25,6 @@ class Measurement(Operation):
 
         super().__init__(args)
     
-    @override
     def _apply(self, qi):
         
         for target in self._targets:
@@ -38,6 +34,5 @@ class Measurement(Operation):
                 end=target._end
             )
 
-    @override
     def _has_measurement(self):
         return True
