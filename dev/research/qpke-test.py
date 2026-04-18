@@ -408,7 +408,6 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
     global circuit
     #global ijChoices
     global deltaChoices
-    global i
     SetupCipherText(message)
 
     print(messageArray)
@@ -424,8 +423,6 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
         print(deltaChoices)
 
         print(circuit.draw())
-        i += 1
-        print(i)
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
@@ -524,5 +521,4 @@ def runNoiseTest(numRounds):
 
         print("Total Error = ", float(totalError)/float(totalPads))
 
-i = 0
 CT = runExperiment(3, 1, "hi", [1,0,0])

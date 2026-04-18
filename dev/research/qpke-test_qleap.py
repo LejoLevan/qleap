@@ -12,10 +12,11 @@
 
 # "runNoiseTest" and "runExperiment" are the main functions.
 
-from qleap import Cnot, Toffoli, Swap, X, Hadamard, Measurement, Qubit, QState, Barrier, Circuit, RunArguments
+from qleap import Cnot, Toffoli, X, Hadamard, Measurement, QState, Barrier, Circuit, RunArguments
 from qiskit.visualization import plot_histogram
 
 import random
+random.seed(0)
 
 def getNthBit(i, n):
     for k in range(n):
@@ -358,7 +359,6 @@ def CreateNextCipherText(numWires, numBlocks):
     #Circuit.draw()
     #Circuit.clear()
     counts = result.counts
-    print("counts = ", counts)
 
     plot_histogram(counts, title="Result")
 
@@ -414,7 +414,6 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
     global qstate
     #global ijChoices
     global deltaChoices
-    global i
     SetupCipherText(message)
 
     print(messageArray)
@@ -430,8 +429,6 @@ def runExperiment(securityParameter, numPubKeysPerTrial, message, key):
         print(deltaChoices)
 
         Circuit.draw()
-        i += 1
-        print(i)
 
         CreateNextCipherText(securityParameter, numPubKeysPerTrial)
         #break
@@ -532,6 +529,4 @@ def runNoiseTest(numRounds):
 
         print("Total Error = ", float(totalError)/float(totalPads))
 
-i=0
-random.seed(0)
 CT = runExperiment(3, 1, "hi", [1,0,0])
