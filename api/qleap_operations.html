@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="qleap.Hadamard" href="_generated/qleap.Hadamard.html"><link rel="prev" title="qleap.QState" href="_generated/qleap.QState.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="qleap.Measurement" href="_generated/qleap.Measurement.html"><link rel="prev" title="qleap.QState" href="_generated/qleap.QState.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Gates and Measurements - qleap documentation</title>
@@ -223,10 +223,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Cnot.html">qleap.Cnot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Measurement.html">qleap.Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_generated/qleap.X.html">qleap.X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Z.html">qleap.Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Cnot.html">qleap.Cnot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Qft.html">qleap.Qft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Swap.html">qleap.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
 </ul>
 </li>
 </ul>
@@ -275,17 +279,29 @@
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.Hadamard.html#qleap.Hadamard" title="qleap.Hadamard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Hadamard</span></code></a>(*args)</p></td>
-<td><p>Hadamard is a class that represents the Hadamard gate operation in the QLeap framework.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Cnot.html#qleap.Cnot" title="qleap.Cnot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Cnot</span></code></a>(control, *args)</p></td>
-<td><p>Cnot is a class that represents the CNOT gate operation in the QLeap framework.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.Measurement.html#qleap.Measurement" title="qleap.Measurement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Measurement</span></code></a>(*args)</p></td>
 <td><p>Measurement is a class that represents a measurement operation in the QLeap framework.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.X.html#qleap.X" title="qleap.X"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.X</span></code></a>(*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Hadamard.html#qleap.Hadamard" title="qleap.Hadamard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Hadamard</span></code></a>(*args)</p></td>
+<td><p>Hadamard is a class that represents the Hadamard gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.X.html#qleap.X" title="qleap.X"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.X</span></code></a>(*args)</p></td>
 <td><p>X is a class that represents the X gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Z.html#qleap.Z" title="qleap.Z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Z</span></code></a>(*args)</p></td>
+<td><p>Z is a class that represents the Z gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.Cnot.html#qleap.Cnot" title="qleap.Cnot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Cnot</span></code></a>(control, *args)</p></td>
+<td><p>Cnot is a class that represents the CNOT gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Qft.html#qleap.Qft" title="qleap.Qft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Qft</span></code></a>(target[, invert])</p></td>
+<td><p>Qft is a class that represents the QFT gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.Swap.html#qleap.Swap" title="qleap.Swap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Swap</span></code></a>(q1, q2[, control])</p></td>
+<td><p>Swap is a class that represents the Swap gate operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Toffoli.html#qleap.Toffoli" title="qleap.Toffoli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Toffoli</span></code></a>(control1, control2, *args)</p></td>
+<td><p>Toffoli is a class that represents the Toffoli gate operation in the QLeap framework.</p></td>
 </tr>
 </tbody>
 </table>
@@ -297,12 +313,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="_generated/qleap.Hadamard.html">
+          <a class="next-page" href="_generated/qleap.Measurement.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">qleap.Hadamard</div>
+                <div class="title">qleap.Measurement</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

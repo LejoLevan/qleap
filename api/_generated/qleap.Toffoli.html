@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="How To: Create Quantum Registers" href="create_quantum_registers.html"><link rel="prev" title="How To Guides" href="../index.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Architecture" href="../../architecture/index.html"><link rel="prev" title="qleap.Swap" href="qleap.Swap.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>How To: Quantum Registers - qleap documentation</title>
+        <title>qleap.Toffoli - qleap documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -201,36 +201,36 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/basic_superposition.html">Basic Superposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">How To: Quantum Registers</a><input aria-label="Toggle navigation of How To: Quantum Registers" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="create_quantum_registers.html">How To: Create Quantum Registers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="access_quantum_registers.html">How To: Access Quantum Registers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="measure_quantum_registers.html">How To: Measure Quantum Registers</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../how_to/index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../how_to/qubits/index.html">How To: Quantum Registers</a><input aria-label="Toggle navigation of How To: Quantum Registers" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../how_to/qubits/create_quantum_registers.html">How To: Create Quantum Registers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how_to/qubits/access_quantum_registers.html">How To: Access Quantum Registers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../how_to/qubits/measure_quantum_registers.html">How To: Measure Quantum Registers</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../draw_circuit.html">How To: Draw Quantum Circuits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../how_to/draw_circuit.html">How To: Draw Quantum Circuits</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Circuit.html">qleap.Circuit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Circuit.html">qleap.Circuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.RunArguments.html">qleap.RunArguments</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/qleap_qubits.html">Qubits and Quantum States</a><input aria-label="Toggle navigation of Qubits and Quantum States" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Qubit.html">qleap.Qubit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.QState.html">qleap.QState</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_qubits.html">Qubits and Quantum States</a><input aria-label="Toggle navigation of Qubits and Quantum States" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Qubit.html">qleap.Qubit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.QState.html">qleap.QState</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/qleap_operations.html">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Measurement.html">qleap.Measurement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.X.html">qleap.X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Z.html">qleap.Z</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Qft.html">qleap.Qft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Swap.html">qleap.Swap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../qleap_operations.html">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="qleap.Measurement.html">qleap.Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Hadamard.html">qleap.Hadamard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.X.html">qleap.X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Z.html">qleap.Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Cnot.html">qleap.Cnot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Qft.html">qleap.Qft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qleap.Swap.html">qleap.Swap</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">qleap.Toffoli</a></li>
 </ul>
 </li>
 </ul>
@@ -256,7 +256,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/how_to/qubits/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/api/_generated/qleap.Toffoli.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -269,22 +269,48 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="how-to-quantum-registers">
-<h1>How To: Quantum Registers<a class="headerlink" href="#how-to-quantum-registers" title="Link to this heading">¶</a></h1>
-<p>This section contains How To guides related to creating, accessing, and measuring quantum registers in QLeap.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="create_quantum_registers.html">How To: Create Quantum Registers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="access_quantum_registers.html">How To: Access Quantum Registers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="measure_quantum_registers.html">How To: Measure Quantum Registers</a></li>
+          <section id="qleap-toffoli">
+<h1>qleap.Toffoli<a class="headerlink" href="#qleap-toffoli" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="qleap.Toffoli">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">qleap.</span></span><span class="sig-name descname"><span class="pre">Toffoli</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qleap.Toffoli" title="Link to this definition">¶</a></dt>
+<dd><p>Toffoli is a class that represents the Toffoli gate operation in the QLeap framework.</p>
+<p>The Toffoli gate is a three-qubit gate that performs a NOT operation on the target qubit if both control qubits are in the state <span class="math notranslate nohighlight">\(|1\rangle\)</span>, and does nothing otherwise.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qleap.Toffoli.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qleap.Toffoli.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a Toffoli instance that represents a Toffoli gate operation with the given control qubits and target qubit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>control1</strong> (<a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.QState"><em>QState</em></a>) – The first control qubit for the Toffoli gate.</p></li>
+<li><p><strong>control2</strong> (<a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.QState"><em>QState</em></a>) – The second control qubit for the Toffoli gate.</p></li>
+<li><p><strong>*args</strong> (<a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.QState"><em>QState</em></a>) – The target qubit for the Toffoli gate.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the control argument contains more than one qubit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#qleap.Toffoli.__init__" title="qleap.Toffoli.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(control1, control2, *args)</p></td>
+<td><p>Creates a Toffoli instance that represents a Toffoli gate operation with the given control qubits and target qubit.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+</dd></dl>
+
 </section>
 
         </article>
@@ -292,23 +318,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="create_quantum_registers.html">
+          <a class="next-page" href="../../architecture/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">How To: Create Quantum Registers</div>
+                <div class="title">Architecture</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="qleap.Swap.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">How To Guides</div>
+                <div class="title">qleap.Swap</div>
                 
               </div>
             </a>
@@ -330,8 +356,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">qleap.Toffoli</a><ul>
+<li><a class="reference internal" href="#qleap.Toffoli"><code class="docutils literal notranslate"><span class="pre">qleap.Toffoli</span></code></a><ul>
+<li><a class="reference internal" href="#qleap.Toffoli.__init__"><code class="docutils literal notranslate"><span class="pre">qleap.Toffoli.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -340,5 +388,7 @@
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script>window.MathJax = {"tex": {"macros": {"ket": ["\\left|#1\\right\\rangle", 1], "bra": ["\\left\\langle#1\\right|", 1], "braket": ["\\left\\langle#1\\right\\rangle", 1], "ketbra": ["\\left|#1\\right\\rangle\\left\\langle#2\\right|", 2], "tensor": ["#1 \\otimes #2", 2]}}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     </body>
 </html>
