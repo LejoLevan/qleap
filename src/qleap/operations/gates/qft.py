@@ -18,12 +18,19 @@ class Qft(Gate):
         ----------
         target : QState
             The targets qubit(s) for the QFT gate.
+        inverse: boolean, optional
+            If True, this gate is an inverse QFT instead. By default, False.
         """
 
         super().__init__(target)
         self._invert = invert
     
     def _apply(self, qi):
+        """overrides the _apply method of the Gate class to apply the QFT or inverse QFT gate to the target qubits.
+
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
 
         if self._invert:
             qi.invQFT(
@@ -37,7 +44,12 @@ class Qft(Gate):
             )
 
     def _apply_inverse(self, qi):
+        """overrides the _apply_inverse method of the QFT class to apply the inverse of this gate. This is the same as calling _apply with invert=True.
 
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
+        
         if self._invert:
             qi.QFT(
                 start=self._targets._start, 

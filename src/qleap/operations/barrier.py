@@ -37,5 +37,9 @@ class Barrier(Operation):
             )
 
     def _apply_inverse(self, qi):
-        pass
+        """overrides the _apply_inverse method of the Gate class to apply the inverse of the Barrier. This is left empty because the inverse of a barrier is not well defined.
 
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
+        pass
