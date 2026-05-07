@@ -91,7 +91,7 @@ class Trace:
         Shows the state at the current time
         """
 
-        #TODO: output the current state nicely
+        # TODO: This currently prints out a raw statevector, but it would be nice to print out a more visually appealing state, such as in braket notation.
         print(self.cur_state)
         print(f'Measurements: {self.outcomes}')
 

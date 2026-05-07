@@ -171,6 +171,7 @@ class Circuit:
         kept_counts = set()
 
         # Distribute the results into the qstates
+        #TODO: currently each output bit is connected to a single qubit, which requires this convoluted proccess to ditribute the resuts out correctly. A good improvement would be to connect each output bit to a measurement instead to avoid any string parsing operatoins.
         for qs in cls._measured:
 
             extract_range = range(qs._start, qs._end)
