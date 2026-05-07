@@ -13,7 +13,7 @@ class Swap(Gate):
     """
 
     def __init__(self, q1, q2, control=None):
-        """Creates a Swap instance that represents a Swap gate operation with the two given qubits. If an optional control qubit is given, this becomes a controlld swap gate.
+        """Creates a Swap instance that represents a Swap gate operation with the two given qubits. If an optional control qubit is given, this becomes a controlled swap gate.
 
         Parameters
         ----------
@@ -39,11 +39,20 @@ class Swap(Gate):
             raise ValueError("Control should be a single qubit")
 
     def _apply(self, qi):
+        """overrides the _apply method of the Gate class to apply the Swap/CSwap gate to the target qubits.
 
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
         if self.control is None:
             qi.swap(self._targets[0]._start, self._targets[1]._start)
         else:
             qi.cswap(self.control._start, self._targets[0]._start, self._targets[1]._start)
 
     def _apply_inverse(self, qi):
+        """overrides the _apply_inverse method of the Gate class to apply the inverse of the Swap/CSwap gate, which is the same as itself.
+
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
         self._apply(qi)

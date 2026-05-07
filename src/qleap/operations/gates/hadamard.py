@@ -19,7 +19,7 @@ class Hadamard(Gate):
         Parameters
         ----------
         *args : QState
-            The QState instances to be acted on by this Hadamard gate operation.
+            The QState instances to be acted on by this Hadamard gate operation. Since this accepts an arbitrary number of arguments, Hadamard(q1, q2) is equivalent to `Hadamard(q1)` and then `Hadamard(q2)`.
         """
         super().__init__(args)
 
