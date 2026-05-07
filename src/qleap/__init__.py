@@ -2,6 +2,8 @@ from .operations import Cnot, Toffoli, Hadamard, X, Measurement, Z, Qft, Swap, B
 from .circuit import Circuit
 from .qstate import QState
 from .qubit import Qubit
+from .trace import Trace
+from .simresult import SimResult
 from .runarguments import RunArguments
 
 __all__ = [
@@ -18,6 +20,9 @@ __all__ = [
     "Circuit",
     "QState",
     "Qubit",
+
+    "Trace",
+    "SimResult",
 
     "RunArguments"
 ]
