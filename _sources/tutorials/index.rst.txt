@@ -9,3 +9,4 @@ Each tutorial is designed to be accessible to both beginners and experienced pro
    :caption: Contents:
 
    basic_superposition
+   multi_circuit

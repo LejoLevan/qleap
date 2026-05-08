@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="qleap.Hadamard" href="qleap.Hadamard.html"><link rel="prev" title="Gates and Measurements" href="../qleap_operations.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="qleap.Measurement" href="_generated/qleap.Measurement.html"><link rel="prev" title="qleap.Toffoli" href="gates/_generated/qleap.Toffoli.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>qleap.Measurement - qleap documentation</title>
+        <title>Operations - qleap documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -172,7 +172,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -199,6 +199,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/basic_superposition.html">Basic Superposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/multi_circuit.html">Multiple Circuit</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../how_to/index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -213,29 +214,42 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Circuit.html">qleap.Circuit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.RunArguments.html">qleap.RunArguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.Circuit.html">qleap.Circuit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.Trace.html">qleap.Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.SimResult.html">qleap.SimResult</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_qubits.html">Qubits and Quantum States</a><input aria-label="Toggle navigation of Qubits and Quantum States" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Qubit.html">qleap.Qubit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.QState.html">qleap.QState</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qleap_qubits.html">Quantum Registers</a><input aria-label="Toggle navigation of Quantum Registers" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.Qubit.html">qleap.Qubit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_generated/qleap.QState.html">qleap.QState</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../qleap_operations.html">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">qleap.Measurement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Hadamard.html">qleap.Hadamard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.X.html">qleap.X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Z.html">qleap.Z</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Cnot.html">qleap.Cnot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Qft.html">qleap.Qft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Swap.html">qleap.Swap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qleap.Toffoli.html">qleap.Toffoli</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Quantum Operations</a><input aria-label="Toggle navigation of Quantum Operations" checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="gates/qleap_gates.html">Gates</a><input aria-label="Toggle navigation of Gates" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.X.html">qleap.X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Z.html">qleap.Z</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Qft.html">qleap.Qft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Swap.html">qleap.Swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gates/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">Operations</a><input aria-label="Toggle navigation of Operations" checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="_generated/qleap.Measurement.html">qleap.Measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="_generated/qleap.Barrier.html">qleap.Barrier</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../developer/index.html">Developer Guides</a><input aria-label="Toggle navigation of Developer Guides" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/github.html">GitHub</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -256,7 +270,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/api/_generated/qleap.Measurement.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/api/operations/qleap_operations.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -269,41 +283,25 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="qleap-measurement">
-<h1>qleap.Measurement<a class="headerlink" href="#qleap-measurement" title="Link to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="qleap.Measurement">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">qleap.</span></span><span class="sig-name descname"><span class="pre">Measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qleap.Measurement" title="Link to this definition">¶</a></dt>
-<dd><p>Measurement is a class that represents a measurement operation in the QLeap framework.</p>
-<p>The Measurement operation measures the state of the target qubits and collapses them to a classical state. The measurement results are recorded in the QLeap framework for later retrieval.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="qleap.Measurement.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.qstate.QState"><span class="pre">QState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qleap.Measurement.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Creates a Measurement instance that represents a measurement operation on the given QState instances.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>*args</strong> (<a class="reference internal" href="qleap.QState.html#qleap.QState" title="qleap.QState"><em>QState</em></a>) – The QState instances to be measured by this measurement operation.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p class="rubric">Methods</p>
+          <section id="operations">
+<h1>Operations<a class="headerlink" href="#operations" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#qleap.Measurement.__init__" title="qleap.Measurement.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args)</p></td>
-<td><p>Creates a Measurement instance that represents a measurement operation on the given QState instances.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/qleap.Measurement.html#qleap.Measurement" title="qleap.Measurement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Measurement</span></code></a>(*args)</p></td>
+<td><p>Measurement is a class that represents a measurement operation in the QLeap framework.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/qleap.Barrier.html#qleap.Barrier" title="qleap.Barrier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">qleap.Barrier</span></code></a>(*args)</p></td>
+<td><p>Barrier is a class that represents a barrier operation in the QLeap framework.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</dd></dl>
-
 </section>
 
         </article>
@@ -311,23 +309,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="qleap.Hadamard.html">
+          <a class="next-page" href="_generated/qleap.Measurement.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">qleap.Hadamard</div>
+                <div class="title">qleap.Measurement</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../qleap_operations.html">
+          <a class="prev-page" href="gates/_generated/qleap.Toffoli.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Gates and Measurements</div>
+                <div class="title">qleap.Toffoli</div>
                 
               </div>
             </a>
@@ -349,30 +347,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">qleap.Measurement</a><ul>
-<li><a class="reference internal" href="#qleap.Measurement"><code class="docutils literal notranslate"><span class="pre">qleap.Measurement</span></code></a><ul>
-<li><a class="reference internal" href="#qleap.Measurement.__init__"><code class="docutils literal notranslate"><span class="pre">qleap.Measurement.__init__()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

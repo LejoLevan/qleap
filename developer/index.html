@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Multiple Circuit" href="multi_circuit.html"><link rel="prev" title="Tutorials" href="index.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Architecture" href="architecture.html"><link rel="prev" title="qleap.Barrier" href="../api/operations/_generated/qleap.Barrier.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Basic Superposition - qleap documentation</title>
+        <title>Developer Guides - qleap documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -197,9 +197,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../start/quickstart.html">Quickstart</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Basic Superposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi_circuit.html">Multiple Circuit</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_superposition.html">Basic Superposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi_circuit.html">Multiple Circuit</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_to/index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -245,9 +245,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/index.html">Developer Guides</a><input aria-label="Toggle navigation of Developer Guides" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/github.html">GitHub</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Developer Guides</a><input aria-label="Toggle navigation of Developer Guides" checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github.html">GitHub</a></li>
 </ul>
 </li>
 </ul>
@@ -270,7 +270,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/tutorials/basic_superposition.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/developer/index.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -288,34 +288,32 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="basic-superposition">
-<h1>Basic Superposition<a class="headerlink" href="#basic-superposition" title="Link to this heading">¶</a></h1>
-<p>In this tutorial, we will learn how to create basic superposition using the Hadamard gate. The Hadamard gate is a fundamental quantum gate that transforms a qubit from the computational basis to the Hadamard basis.
-When the Hadamard gate is applied to a qubit in the <span class="math notranslate nohighlight">\(\ket{0}\)</span> state, which is a common use case, it evolves into <span class="math notranslate nohighlight">\(\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\)</span>, which is a equal superposition of the <span class="math notranslate nohighlight">\(\ket{0}\)</span> and <span class="math notranslate nohighlight">\(\ket{1}\)</span> states.
-We know that they are equally likely to be measured as either <span class="math notranslate nohighlight">\(\ket{0}\)</span> or <span class="math notranslate nohighlight">\(\ket{1}\)</span> by squaring the amplitudes.</p>
-<p>To create a qubit in superposition using the Hadamard gate, we begin with the following code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
-
-<span class="c1"># Create a qubit</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">()</span>
-
-<span class="c1"># Apply the Hadamard gate to put the qubit in superposition</span>
-<span class="n">Hadamard</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-
-<span class="c1"># Measure the qubit</span>
-<span class="n">Measurement</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-
-<span class="c1"># Run the quantum program</span>
-<span class="n">Circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
-<span class="c1"># Print the measurement result</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Measurement result: </span><span class="si">{</span><span class="n">Circuit</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
+          <section id="developer-guides">
+<h1>Developer Guides<a class="headerlink" href="#developer-guides" title="Link to this heading">¶</a></h1>
+<p>This section contains guides specfic to developers who which to add onto the open source project.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#uml-diagram">UML Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#circuit-class">Circuit Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#quantuminterface-class">QuantumInterface Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#runarguments-class">RunArguments Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#operation-class">Operation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#measurement-class">Measurement Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#gate-class">Gate Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#hadamard-cnot-x-classes">Hadamard/CNOT/X Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#qstate-class">QState Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#qubit-class">Qubit Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="github.html#advanced-documentaiton">Advanced Documentaiton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github.html#navigation">Navigation</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<p>In this code, we first import the necessary classes from the QLeap library. We create a qubit using the Qubit class. By default, the qubit is initialized in the <span class="math notranslate nohighlight">\(\ket{0}\)</span> state. We then apply the Hadamard gate to the qubit, which puts it into a superposition state.
-After applying the Hadamard gate, we measure the qubit using the Measurement class. This collapses the superposition state back to either <span class="math notranslate nohighlight">\(\ket{0}\)</span> or <span class="math notranslate nohighlight">\(\ket{1}\)</span> with equal probability.
-Finally, we run the quantum program using the <cite>run()</cite> method of the Circuit instance and print the measurement result.</p>
-<p>When you run this code, you should see that the measurement result is either 0 or 1, demonstrating that the qubit was in a superposition state before measurement.</p>
 </section>
 
         </article>
@@ -323,23 +321,23 @@ Finally, we run the quantum program using the <cite>run()</cite> method of the C
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="multi_circuit.html">
+          <a class="next-page" href="architecture.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Multiple Circuit</div>
+                <div class="title">Architecture</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="../api/operations/_generated/qleap.Barrier.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Tutorials</div>
+                <div class="title">qleap.Barrier</div>
                 
               </div>
             </a>
@@ -371,7 +369,5 @@ Finally, we run the quantum program using the <cite>run()</cite> method of the C
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
-    <script>window.MathJax = {"tex": {"macros": {"ket": ["\\left|#1\\right\\rangle", 1], "bra": ["\\left\\langle#1\\right|", 1], "braket": ["\\left\\langle#1\\right\\rangle", 1], "ketbra": ["\\left|#1\\right\\rangle\\left\\langle#2\\right|", 2], "tensor": ["#1 \\otimes #2", 2]}}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     </body>
 </html>
