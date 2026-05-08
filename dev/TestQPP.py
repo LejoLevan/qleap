@@ -1,49 +1,33 @@
-from qpp_test import Qubit, QState, Hadamard, Cnot, Measurement, QPP
+from qleap import Circuit, Qubit, X, Cnot, Measurement
 
-if __name__ == '__main__':
-    print('running')
+# Constructs |10>
+def x_circuit():
+    wire1 = Qubit()
+    wire2 = Qubit()
 
-    """
-    # Simple program
-    q = Qubit()
-    Hadamard(q)
-    m = Measurement(q)
+    X(wire1)
 
-    QPP.run()"""
+    Measurement(wire1, wire2)
 
-    """
-    q1 = Qubit()
-    q2 = Qubit()
-    q3 = Qubit()
+# Consctructs |11>
+def x_cnot_circuit():
+    wire1 = Qubit()
+    wire2 = Qubit()
 
-    Hadamard(q1, q2)
-    #Cnot(q1, q2)
-    Measurement(q1, q2)
+    X(wire1)
+    Cnot(wire1, wire2)
 
-    QPP.run()
+    Measurement(wire1, wire2)
 
-    print({f'The Measurement results are: {QPP.get_results().counts}'})
-    QPP.draw()
+# Main function to run the circuits
+def main():
+    x_circuit()
+    Circuit.run()
+    print(f'Measurement result: {Circuit.get_results()}')
 
-    print(f'q1: {q1.get_results()}')
-    print(f'q2: {q2.get_results()}')
-    print(f'q3: {q3.get_results()}')
+    x_cnot_circuit()
+    Circuit.run()
+    print(f'Measurement result: {Circuit.get_results()}')
 
-    print(QPP.get_results())
-    """
-
-    qs = QState(2)
-    q0 = qs[0]
-    q1 = Qubit(qs, 1)
-
-    Hadamard(qs[0])
-    Cnot(q0, qs[1])
-    Hadamard(q1)
-
-    Measurement(qs, q1)
-    QPP.run()
-    QPP.draw()
-
-    print(QPP.get_results())
-    print(qs.get_results())
-    print(q1.get_results())
+if __name__ == "__main__":
+    main()
