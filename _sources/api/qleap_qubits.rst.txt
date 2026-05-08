@@ -1,5 +1,5 @@
-Quantum Registers
-=================
+Qubits and Quantum States
+=========================
 
 .. autosummary::
    :toctree: _generated

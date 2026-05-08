@@ -8,7 +8,7 @@ They are also stored the `QState` object itself, which can be accessed using the
 
 .. code-block:: python
 
-    from qleap import Circuit, QState, Measurement
+    from qleap import QLeap, QState, Measurement
 
     # Create a quantum register with 3 qubits
     qreg = QState(3)

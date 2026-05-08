@@ -1,7 +1,7 @@
 Architecture
 ============
 
-This page provides an overview of the architecture of the QLeap quantum programming language. It covers each class and its role in the overall design of the language, as well as how they interact with each other to enable quantum programming. 
+This section provides an overview of the architecture of the QLeap quantum programming language. It covers each class and its role in the overall design of the language, as well as how they interact with each other to enable quantum programming. 
 The architecture is designed to be modular and extensible, allowing for future enhancements and additions to the language.
 
 UML Diagram

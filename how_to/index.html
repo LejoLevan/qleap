@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="How To: Quantum Registers" href="qubits/index.html"><link rel="prev" title="Multiple Circuit" href="../tutorials/multi_circuit.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="How To: Quantum Registers" href="qubits/index.html"><link rel="prev" title="Basic Superposition" href="../tutorials/basic_superposition.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>How To Guides - qleap documentation</title>
@@ -199,7 +199,6 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_superposition.html">Basic Superposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi_circuit.html">Multiple Circuit</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">How To Guides</a><input aria-label="Toggle navigation of How To Guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -216,40 +215,27 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Circuit.html">qleap.Circuit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Trace.html">qleap.Trace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.SimResult.html">qleap.SimResult</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_qubits.html">Quantum Registers</a><input aria-label="Toggle navigation of Quantum Registers" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_qubits.html">Qubits and Quantum States</a><input aria-label="Toggle navigation of Qubits and Quantum States" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Qubit.html">qleap.Qubit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.QState.html">qleap.QState</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api/operations/index.html">Quantum Operations</a><input aria-label="Toggle navigation of Quantum Operations" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/operations/gates/qleap_gates.html">Gates</a><input aria-label="Toggle navigation of Gates" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.X.html">qleap.X</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Z.html">qleap.Z</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Qft.html">qleap.Qft</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Swap.html">qleap.Swap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../api/operations/qleap_operations.html">Operations</a><input aria-label="Toggle navigation of Operations" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/_generated/qleap.Measurement.html">qleap.Measurement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../api/operations/_generated/qleap.Barrier.html">qleap.Barrier</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_operations.html">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Measurement.html">qleap.Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.X.html">qleap.X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Z.html">qleap.Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Qft.html">qleap.Qft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Swap.html">qleap.Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/index.html">Developer Guides</a><input aria-label="Toggle navigation of Developer Guides" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/github.html">GitHub</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
 </ul>
 
 </div>
@@ -290,7 +276,7 @@
         <article role="main" id="furo-main-content">
           <section id="how-to-guides">
 <h1>How To Guides<a class="headerlink" href="#how-to-guides" title="Link to this heading">¶</a></h1>
-<p>This section contains How To’s that demonstrate specific usage within the QLeap Framework.</p>
+<p>This section contains How Tos that demonstrate specific usage within the QLeap Framework.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -319,14 +305,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../tutorials/multi_circuit.html">
+          <a class="prev-page" href="../tutorials/basic_superposition.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Multiple Circuit</div>
+                <div class="title">Basic Superposition</div>
                 
               </div>
             </a>
