@@ -16,6 +16,7 @@ While several quantum programming languages already exist, such as Qiskit, QLeap
 However, QLeap is designed to beindependent, and its backend may migrate away from Qiskit in a future version. QLeap is not a standalone language, but packaged as a Python library. 
 The code can be executed in two ways: simulating the result locally, or exporting to compiled code ready to run on a quantum machine.
 
+https://github.com/LejoLevan/qleap
 
 .. toctree::
    :maxdepth: 2
@@ -25,5 +26,5 @@ The code can be executed in two ways: simulating the result locally, or exportin
    tutorials/index
    how_to/index
    api/index
-   architecture/index
+   developer/index
 

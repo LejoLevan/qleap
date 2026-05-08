@@ -199,6 +199,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/basic_superposition.html">Basic Superposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi_circuit.html">Multiple Circuit</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">How To Guides</a><input aria-label="Toggle navigation of How To Guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
@@ -215,27 +216,40 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_core.html">Core Classes</a><input aria-label="Toggle navigation of Core Classes" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Circuit.html">qleap.Circuit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.RunArguments.html">qleap.RunArguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Trace.html">qleap.Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.SimResult.html">qleap.SimResult</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_qubits.html">Qubits and Quantum States</a><input aria-label="Toggle navigation of Qubits and Quantum States" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_qubits.html">Quantum Registers</a><input aria-label="Toggle navigation of Quantum Registers" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Qubit.html">qleap.Qubit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.QState.html">qleap.QState</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api/qleap_operations.html">Gates and Measurements</a><input aria-label="Toggle navigation of Gates and Measurements" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Measurement.html">qleap.Measurement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.X.html">qleap.X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Z.html">qleap.Z</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Qft.html">qleap.Qft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Swap.html">qleap.Swap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/operations/index.html">Quantum Operations</a><input aria-label="Toggle navigation of Quantum Operations" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/operations/gates/qleap_gates.html">Gates</a><input aria-label="Toggle navigation of Gates" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Hadamard.html">qleap.Hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.X.html">qleap.X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Z.html">qleap.Z</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Cnot.html">qleap.Cnot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Qft.html">qleap.Qft</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Swap.html">qleap.Swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/gates/_generated/qleap.Toffoli.html">qleap.Toffoli</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/operations/qleap_operations.html">Operations</a><input aria-label="Toggle navigation of Operations" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/_generated/qleap.Measurement.html">qleap.Measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/operations/_generated/qleap.Barrier.html">qleap.Barrier</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/index.html">Developer Guides</a><input aria-label="Toggle navigation of Developer Guides" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/github.html">GitHub</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -278,7 +292,7 @@
 <h1>How To: Draw Quantum Circuits<a class="headerlink" href="#how-to-draw-quantum-circuits" title="Link to this heading">¶</a></h1>
 <p>QLeap provides a convenient way to visualize quantum circuits using the <cite>draw()</cite> method.
 This method generates a visual representation of the quantum circuit, showing the qubits, gates, and measurements in a clear and intuitive way.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">QLeap</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">qleap</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">QState</span><span class="p">,</span> <span class="n">Hadamard</span><span class="p">,</span> <span class="n">Measurement</span>
 
 <span class="c1"># Create a quantum register with 2 qubits</span>
 <span class="n">qreg</span> <span class="o">=</span> <span class="n">QState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -290,11 +304,11 @@ This method generates a visual representation of the quantum circuit, showing th
 <span class="c1"># Measure the qubits</span>
 <span class="n">Measurement</span><span class="p">(</span><span class="n">qreg</span><span class="p">)</span>
 
-<span class="c1"># Run the quantum program</span>
-<span class="n">Circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-
 <span class="c1"># Draw the quantum circuit</span>
 <span class="n">Circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="c1"># Run the quantum program</span>
+<span class="n">Circuit</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>In this code, we first create a quantum register with 2 qubits using the <cite>QState</cite> class. We then apply the Hadamard gate to both qubits in the register, putting them into a superposition state. Next, we measure the qubits and run the quantum program.
