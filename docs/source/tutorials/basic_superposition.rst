@@ -9,7 +9,7 @@ To create a qubit in superposition using the Hadamard gate, we begin with the fo
 
 .. code-block:: python
 
-    from qleap import QLeap, Qubit, Hadamard, Measurement
+    from qleap import Circuit, Qubit, Hadamard, Measurement
 
     # Create a qubit
     q = Qubit()

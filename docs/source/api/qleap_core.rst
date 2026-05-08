@@ -6,3 +6,5 @@ Core Classes
 
    qleap.Circuit
    qleap.RunArguments
+   qleap.Trace
+   qleap.SimResult

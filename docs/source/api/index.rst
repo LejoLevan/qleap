@@ -9,4 +9,4 @@ Documentation for the QLeap API, including core components, qubits, and operatio
 
    qleap_core
    qleap_qubits
-   qleap_operations
+   operations/index
