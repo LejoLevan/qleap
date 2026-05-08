@@ -6,7 +6,6 @@ This module provides the Toffoli class, which represents the Toffoli gate operat
 
 from .gate import Gate
 from ...qstate import QState
-from typing import override
 
 class Toffoli(Gate):
     """Toffoli is a class that represents the Toffoli gate operation in the QLeap framework.
@@ -40,11 +39,20 @@ class Toffoli(Gate):
         if len(control2) > 1:
             raise ValueError("Toffoli control 2 should be a single qubit")
         
-    @override
     def _apply(self, qi):
+        """overrides the _apply method of the Gate class to apply the Toffoli gate to the target qubits.
+
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
+
         for target in self._targets:
             qi.toffoli(self._control1._start, self._control2._start, target._start) # type: ignore
 
-    @override
     def _apply_inverse(self, qi):
+        """overrides the _apply_inverse method of the Gate class to apply the inverse of the Toffoli gate, which is the same as the Toffoli gate itself.
+
+        Args:
+            qi (QuantumInterface): The quantum interface to which the gate is applied.
+        """
         self._apply(qi)

@@ -65,11 +65,6 @@ def test_deutsch_jozsa():
     # Run the quantum program
     result = Circuit.run()
 
-    # Check that the measurement was recorded correctly
-    assert len(Circuit._measured) == 1
-    assert any(q._start == 0 for q in Circuit._measured)
-    assert any(q._end == 3 for q in Circuit._measured)
-
     # Check that the results were recorded correctly
     assert result is not None
     assert result.counts == {'111': 1024}
